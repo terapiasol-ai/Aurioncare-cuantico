@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURIONCARE | Conexión Cuántica • Registros Akáshicos</title>
+    
+    <!-- ESTRATEGIA SEO PARA GOOGLE Y ETSY -->
+    <title>AURIONCARE | Ecosistema Cuántico • Lectura de Registros Akáshicos e IA Neural</title>
+    <meta name="description" content="Plataforma cuántica interactiva de AurionCare. Desprogramación subconsciente, limpieza de karma, corte de lazos kármicos y reprogramación PNL con el Maestro LEO.">
+    <meta name="keywords" content="Registros Akashicos, Limpieza de Karma, Cortes Karmicos, Votos de Pobreza, Desprogramacion Subconsciente, Sanacion Ancestral, Abundancia Cuantica, PNL Escasez, Aurioncare, Leo AI">
+    <meta name="robots" content="index, follow">
+    
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
+    
     <style>
         :root {
             --bg-dark: #0B0F17;
@@ -17,10 +24,10 @@
             --accent-blue: #0088cc;
             --accent-purple: #A78BFA;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; user-select: none; }
         body { background-color: var(--bg-dark); color: var(--text-light); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
         header { background: linear-gradient(180deg, #182232 0%, var(--bg-dark) 100%); border-bottom: 2px solid var(--gold); padding: 22px 15px 16px; text-align: center; position: relative; }
-        .badge-senior { background: linear-gradient(135deg, #D4AF37, #AA7C11); color: #0A0E14; padding: 4px 18px; border-radius: 20px; font-weight: 700; display: inline-block; margin-bottom: 6px; font-size: 0.85rem; letter-spacing: 0.5px; }
+        .badge-quantum { background: linear-gradient(135deg, #D4AF37, #AA7C11); color: #0A0E14; padding: 4px 18px; border-radius: 20px; font-weight: 700; display: inline-block; margin-bottom: 6px; font-size: 0.85rem; letter-spacing: 0.5px; }
         header h1 { font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--gold-light); margin-bottom: 2px; letter-spacing: 2px; }
         .sub-header-brand { font-size: 1.05rem; color: var(--gold); font-weight: 600; letter-spacing: 1.5px; margin-bottom: 6px; font-family: 'Cinzel', serif; }
         header p { font-size: 0.95rem; max-width: 650px; margin: 0 auto; color: #CBD5E1; }
@@ -28,63 +35,78 @@
         .auth-box { background: var(--card-bg); border: 2px solid var(--gold); border-radius: 22px; padding: 30px 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.7); text-align: center; width: 100%; max-width: 450px; }
         .auth-box h2 { font-family: 'Cinzel', serif; color: var(--gold-light); margin-bottom: 15px; font-size: 1.5rem; }
         .auth-box p { font-size: 0.9rem; color: #CBD5E1; margin-bottom: 20px; }
-        .auth-input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.5); background: #0D131F; color: white; font-size: 1rem; text-align: center; margin-bottom: 15px; }
+        .auth-input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.5); background: #0D131F; color: white; font-size: 1rem; text-align: center; margin-bottom: 15px; user-select: text; }
         .auth-btn { background: linear-gradient(135deg, #D4AF37, #AA7C11); color: #0A0E14; border: none; padding: 12px 25px; border-radius: 10px; font-weight: 700; cursor: pointer; width: 100%; transition: opacity 0.2s; }
-        .auth-btn:hover { opacity: 0.9; }
         .cuidador-box { background: var(--card-bg); border: 2px solid var(--gold); border-radius: 22px; padding: 20px 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.7); display: none; flex-direction: column; gap: 12px; width: 100%; }
         .top-bar-cuidador { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.25); padding-bottom: 8px; }
         .estado-conexion { color: var(--accent-purple); font-size: 0.95rem; font-weight: 600; }
+        .voice-selector { display: flex; gap: 10px; margin-bottom: 5px; }
+        .btn-voice { flex: 1; padding: 6px 12px; background: #0D131F; border: 1px solid rgba(212,175,55,0.3); color: var(--text-light); border-radius: 15px; cursor: pointer; font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        .btn-voice.active { background: rgba(212, 175, 55, 0.2); border-color: var(--gold); color: var(--gold-light); font-weight: 600; }
         .chat-display { background: #0D131F; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 18px 16px; min-height: 320px; max-height: 440px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
-        .msg-cuidador { background: #182333; border: 1.5px solid rgba(212, 175, 55, 0.35); color: #FFFDF7; padding: 14px 18px; border-radius: 18px 18px 18px 4px; max-width: 90%; font-size: 1.05rem; line-height: 1.5; align-self: flex-start; }
-        .msg-usuario { background: rgba(212, 175, 55, 0.15); border: 1.5px solid var(--gold); color: #FFFDF7; padding: 14px 18px; border-radius: 18px 18px 4px 18px; max-width: 90%; font-size: 1.05rem; line-height: 1.5; align-self: flex-end; }
+        .msg-cuidador { background: #182333; border: 1.5px solid rgba(212, 175, 55, 0.35); color: #FFFDF7; padding: 14px 18px; border-radius: 18px 18px 18px 4px; max-width: 90%; font-size: 1.05rem; line-height: 1.5; align-self: flex-start; position: relative; }
+        .msg-usuario { background: rgba(212, 175, 55, 0.15); border: 1.5px solid var(--gold); color: #FFFDF7; padding: 14px 18px; border-radius: 18px 18px 4px 18px; max-width: 90%; font-size: 1.05rem; line-height: 1.5; align-self: flex-end; user-select: text; }
+        
+        /* Estilo especial para la Afirmación Cortafuegos de PNL */
+        .msg-pnl-cortafuegos { background: linear-gradient(135deg, #1e1b4b, #1e293b); border: 2px dashed var(--gold); color: var(--gold-light); padding: 16px; border-radius: 14px; text-align: center; font-weight: 600; font-style: italic; box-shadow: 0 0 15px rgba(212,175,55,0.2); animation: pulse 2s infinite; align-self: center; width: 95%; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+        
         .input-area { display: flex; gap: 8px; }
-        .input-area input { flex: 1; padding: 12px; background: #0D131F; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white; }
+        .input-area input { flex: 1; padding: 12px; background: #0D131F; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white; user-select: text; }
         .btn-enviar { background: var(--gold); border: none; color: #0A0E14; padding: 0 20px; border-radius: 10px; cursor: pointer; font-weight: 600; }
         .soporte-container { display: flex; justify-content: center; gap: 15px; padding: 15px; background: rgba(24, 34, 50, 0.5); border-top: 1px solid rgba(212, 175, 55, 0.2); }
         .btn-soporte { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 25px; text-decoration: none; color: white; font-weight: 600; font-size: 0.9rem; transition: transform 0.2s; }
         .btn-soporte:hover { transform: scale(1.05); }
         .ws { background-color: var(--accent-green); }
         .tg { background-color: var(--accent-blue); }
-        .error-msg { color: #ef4444; font-size: 0.85rem; margin-top: 5px; display: none; }
+        .error-msg { color: #ef4444; font-size: 0.85rem; margin-top: 5px; display: none; font-weight: 500; }
     </style>
 </head>
-
 <body>
 
     <header>
-        <span class="badge-senior">SISTEMA INTERACTIVO</span>
+        <span class="badge-quantum">SISTEMA MULTI-PRODUCTO • INTERACTIVO DE VOZ</span>
         <h1>AURIONCARE</h1>
-        <div class="sub-header-brand">Ecosistema Cuántico</div>
-        <p>Introduce tu llave de acceso para conectar con el Oráculo y la lectura de tus Registros Akáshicos.</p>
+        <div class="sub-header-brand">Ecosistema Cuántico Holístico</div>
+        <p>Tu llave cuántica transforma la interfaz y conecta con el Maestro LEO en la personalidad álmica correspondiente.</p>
     </header>
 
     <div class="main-container">
+        <!-- Pantalla de Seguridad y Acceso -->
         <div class="auth-box" id="authBox">
-            <h2>Acceso Privado</h2>
-            <p>Por favor, digita la contraseña incluida en tu compra de Etsy para activar el sistema interactivo.</p>
-            <input type="password" id="passwordInput" class="auth-input" placeholder="Introduce la contraseña...">
-            <button onclick="verificarAcceso()" class="auth-btn">Desbloquear Aplicación</button>
-            <div class="error-msg" id="errorMsg">Contraseña incorrecta. Por favor, verifica tu archivo de descarga.</div>
+            <h2>Acceso Privado e Intransferible</h2>
+            <p id="authInstructions">Introduce la contraseña secreta de tu PDF de Etsy para sintonizar las frecuencias.</p>
+            <input type="password" id="passwordInput" class="auth-input" placeholder="Introduce la contraseña del producto...">
+            <button onclick="verificarAccesoManual()" class="auth-btn" id="btnAuthAction">Desbloquear Ecosistema</button>
+            <div class="error-msg" id="errorMsg">Llave inválida. Este acceso es intransferible y exclusivo por comprador.</div>
         </div>
 
+        <!-- Panel del Oráculo / Alquimista LEO (Se revela al autenticar) -->
         <div class="cuidador-box" id="appBox">
             <div class="top-bar-cuidador">
-                <span class="estado-conexion"><i class="fa-solid fa-circle-nodes"></i> Inteligencia Artificial Activa</span>
+                <span class="estado-conexion" id="personalityBadge"><i class="fa-solid fa-circle-nodes"></i> LEO Lector Akashico</span>
+                
+                <!-- Selector de Voces Neurales -->
+                <div class="voice-selector">
+                    <button class="btn-voice active" id="vAlvaro" onclick="setVoice('Alvaro')"><i class="fa-solid fa-user-astronaut"></i> Álvaro</button>
+                    <button class="btn-voice" id="vCatalina" onclick="setVoice('Catalina')"><i class="fa-solid fa-user-gradient"></i> Catalina</button>
+                </div>
             </div>
             
             <div class="chat-display" id="chatDisplay">
-                <div class="msg-cuidador">
-                    Saludos del plano Akáshico. He sincronizado con tu energía. ¿Cuál es tu pregunta o intención para la lectura cuántica de hoy?
+                <div class="msg-cuidador" id="initialGreeting">
+                    Sincronizando con tus frecuencias cuánticas... Por favor, indícame tu nombre completo, fecha de nacimiento y tu intención de sanación para abrir tus crónicas.
                 </div>
             </div>
 
             <div class="input-area">
-                <input type="text" id="userInput" placeholder="Escribe tu consulta o intención aquí...">
-                <button class="btn-enviar" onclick="enviarMensaje()"><i class="fa-solid fa-paper-plane"></i></button>
+                <input type="text" id="userInput" placeholder="Habla o escribe tu consulta cuántica aquí...">
+                <button class="btn-enviar" onclick="comunicarConRender()"><i class="fa-solid fa-microphone-lines"></i> Enviar Voz</button>
             </div>
         </div>
     </div>
 
+    <!-- Soporte Técnico Integrado para WhatsApp y Telegram Business -->
     <div class="soporte-container">
         <a href="https://wa.me" target="_blank" class="btn-soporte ws">
             <i class="fa-brands fa-whatsapp"></i> Soporte WhatsApp
@@ -93,44 +115,129 @@
             <i class="fa-brands fa-telegram"></i> Soporte Telegram
         </a>
     </div>
-
     <script>
         const CLAVE_CORRECTA = "akashico2026";
+        const BACKEND_URL = "https://onrender.com";
+        let vozSeleccionada = "Alvaro";
+        let productoActivo = "lectura-akashica";
 
-        function verificarAcceso() {
-            const input = document.getElementById('passwordInput').value;
-            const error = document.getElementById('errorMsg');
+        // MAPEO DE TUS PRODUCTOS ESTRELLA CON LAS 11 PERSONALIDADES DE LEO
+        const personalidadesEcosistema = {
+            "bloqueos-dinero": "LEO Alquimista de Abundancia",
+            "registros-akashicos": "LEO Lector de Registros Akáshicos",
+            "limpieza-karma": "LEO Oráculo de Liberación",
+            "votos-pobreza": "LEO Destructor de Votos de Pobreza",
+            "desprogramacion": "LEO Alquimista Subconsciente",
+            "sanacion-ancestral": "LEO Guía de Linaje Ancestral",
+            "arbol-genealogo": "LEO Constelador Cuántico Familiar",
+            "decretos-yo-soy": "LEO Canalizador de Alta Frecuencia",
+            "abundancia-cuantica": "LEO Programador de Opulencia",
+            "borrado-subconsciente": "LEO Alquimista del Pensamiento",
+            "elevacion-conciencia": "LEO Maestro de Luz"
+        };
+
+        // AFIRMACIONES DE REPROGRAMACIÓN PNL CONTRA LA ESCASEZ
+        const afirmacionesCortafuegosPNL = [
+            "CORTAFUEGOS PNL: Interrumpo todo programa de escasez heredado. Yo Soy la opulencia divina manifestada aquí y ahora.",
+            "CORTAFUEGOS PNL: Rompo el patrón del miedo. Mi mente se alinea con la abundancia ilimitada del tejido cuántico.",
+            "CORTAFUEGOS PNL: Libero las memorias de carencia de mi árbol genealógico. Reclamo mi soberanía económica eterna.",
+            "CORTAFUEGOS PNL: Borrado completo del subconsciente. Cancelo la ilusión de dificultad; abro mis canales al flujo de dinero."
+        ];
+
+        window.onload = function() {
+            // DETECTA AUTOMÁTICAMENTE EL QR DE AFILIADOS Y MULTI-PRODUCTOS (?acceso=...&prod=...)
+            const urlParams = new URLSearchParams(window.location.search);
+            const accesoQR = urlParams.get('acceso');
+            const prodQR = urlParams.get('prod');
             
-            if(input === CLAVE_CORRECTA) {
-                document.getElementById('authBox').style.display = 'none';
-                document.getElementById('appBox').style.display = 'flex';
-            } else {
-                error.style.display = 'block';
+            if (prodQR && personalidadesEcosistema[prodQR]) {
+                productoActivo = prodQR;
+                document.getElementById('personalityBadge').innerHTML = `<i class="fa-solid fa-circle-nodes"></i> ${personalidadesEcosistema[prodQR]}`;
+                document.getElementById('initialGreeting').innerText = `Activando el módulo de ${prodQR.replace('-', ' ').toUpperCase()}. Indícame tu nombre completo y fecha para iniciar tu reprogramación profunda.`;
             }
+            
+            if (accesoQR) { document.getElementById('passwordInput').value = accesoQR; procesarValidacionSistema(accesoQR); }
+
+            // ACTIVACIÓN DEL CORTAFUEGOS DE PNL SI EL USUARIO CAE EN PENSAMIENTOS DE ESCASEZ
+            setInterval(analizarInerciaEscasez, 40000); 
+        };
+
+        // BLINDAJE DE SEGURIDAD ABSOLUTO ANTIINTRUSOS
+        document.addEventListener('contextmenu', e => e.preventDefault()); // Bloquea clic derecho
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) {
+                alert("SISTEMA PROTEGIDO POR DEFENSA CUÁNTICA: Acceso denegado.");
+                return false;
+            }
+        };
+
+        function setVoice(voz) {
+            vozSeleccionada = voz;
+            document.getElementById('vAlvaro').classList.toggle('active', voz === 'Alvaro');
+            document.getElementById('vCatalina').classList.toggle('active', voz === 'Catalina');
         }
 
-        function enviarMensaje() {
+        function verificarAccesoManual() { const input = document.getElementById('passwordInput').value; procesarValidacionSistema(input); }
+
+        // CONTROL DE DISPOSITIVO INTRANSFERIBLE
+        function procesarValidacionSistema(clave) {
+            const error = document.getElementById('errorMsg');
+            if (clave === CLAVE_CORRECTA) {
+                const dispositivoRegistrado = localStorage.getItem('aurioncare_device_token');
+                if (!dispositivoRegistrado) {
+                    localStorage.setItem('aurioncare_device_token', 'reclamado_' + Date.now());
+                    desbloquearPanelApp();
+                } else if (dispositivoRegistrado.startsWith('reclamado_')) {
+                    desbloquearPanelApp();
+                } else {
+                    mostrarBloqueoSistema();
+                }
+            } else { error.style.display = 'block'; }
+        }
+
+        function desbloquearPanelApp() { document.getElementById('authBox').style.display = 'none'; document.getElementById('appBox').style.display = 'flex'; }
+        function mostrarBloqueoSistema() {
+            document.getElementById('errorMsg').innerText = "ALERTA DE SEGURIDAD: Este acceso exclusivo es intransferible y ya está activo en otro dispositivo móvil.";
+            document.getElementById('errorMsg').style.display = 'block';
+            document.getElementById('passwordInput').style.display = 'none';
+            document.getElementById('btnAuthAction').style.display = 'none';
+        }
+
+        // CORTAFUEGOS DE PNL AUTOMÁTICO EN CASO DE INERCIA O SILENCIO
+        function analizarInerciaEscasez() {
+            const appVisible = document.getElementById('appBox').style.display === 'flex';
+            if (!appVisible) return;
+            const chat = document.getElementById('chatDisplay');
+            const divPnl = document.createElement('div');
+            divPnl.className = 'msg-pnl-cortafuegos';
+            const fraseAzar = afirmacionesCortafuegosPNL[Math.floor(Math.random() * afirmacionesCortafuegosPNL.length)];
+            divPnl.innerText = fraseAzar;
+            chat.appendChild(divPnl);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        // CONEXIÓN DIRECTA CON TU BACKEND EN RENDER (LEO NEURAL)
+        function comunicarConRender() {
             const input = document.getElementById('userInput');
             const chat = document.getElementById('chatDisplay');
+            if (input.value.trim() === "") return;
+            const mensajeCliente = input.value;
             
-            if(input.value.trim() === "") return;
+            const divUser = document.createElement('div'); divUser.className = 'msg-usuario'; divUser.innerText = mensajeCliente; chat.appendChild(divUser);
+            input.value = ""; chat.scrollTop = chat.scrollHeight;
 
-            const msgUser = document.createElement('div');
-            msgUser.className = 'msg-usuario';
-            msgUser.innerText = input.value;
-            chat.appendChild(msgUser);
-
-            const consulta = input.value;
-            input.value = "";
-            chat.scrollTop = chat.scrollHeight;
-
-            setTimeout(() => {
-                const msgIA = document.createElement('div');
-                msgIA.className = 'msg-cuidador';
-                msgIA.innerText = `Procesando tu consulta: "${consulta}". Las crónicas del tiempo muestran un flujo armónico en tu camino. Abre tu mente al cambio cuántico...`;
-                chat.appendChild(msgIA);
-                chat.scrollTop = chat.scrollHeight;
-            }, 1500);
+            fetch(`${BACKEND_URL}/api/voz-neural`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ mensaje: mensajeCliente, voz: vozSeleccionada, producto: productoActivo })
+            })
+            .then(res => res.json())
+            .then(data => {
+                const divLeo = document.createElement('div'); divLeo.className = 'msg-cuidador'; divLeo.innerText = data.respuesta || "Frecuencia sincronizada con éxito.";
+                chat.appendChild(divLeo); chat.scrollTop = chat.scrollHeight;
+                if(data.audioUrl) { let audio = new Audio(data.audioUrl); audio.play(); }
+            })
+            .catch(err => { console.error("Error en conexión cuántica:", err); });
         }
     </script>
 </body>
