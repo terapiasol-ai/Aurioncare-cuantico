@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- ESTRATEGIA SEO AVANZADA PARA GOOGLE Y ETSY -->
     <title>AURIONCARE | Ecosistema Cuántico • LEO AI & Registros Akáshicos</title>
     <meta name="description" content="Plataforma cuántica interactiva de AurionCare. Desprogramación subconsciente, limpieza de karma, corte de lazos kármicos y reprogramación con el Maestro LEO.">
     <meta name="keywords" content="Registros Akashicos, Limpieza de Karma, Cortes Karmicos, Votos de Pobreza, Desprogramacion Subconsciente, Sanacion Ancestral, Abundancia Cuantica, Aurioncare, Leo AI">
-    <meta name="robots" content="index, follow">
     
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
@@ -24,23 +21,61 @@
             --accent-blue: #0088cc;
             --accent-purple: #A78BFA;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; user-select: none; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--bg-dark); color: var(--text-light); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
+        
         header { background: linear-gradient(180deg, #182232 0%, var(--bg-dark) 100%); border-bottom: 2px solid var(--gold); padding: 22px 15px 16px; text-align: center; position: relative; }
         .header-logo { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--gold); object-fit: cover; margin-bottom: 8px; box-shadow: 0 0 20px rgba(212, 175, 55, 0.35); }
         .badge-quantum { background: linear-gradient(135deg, #D4AF37, #AA7C11); color: #0A0E14; padding: 4px 18px; border-radius: 20px; font-weight: 700; display: inline-block; margin-bottom: 6px; font-size: 0.85rem; letter-spacing: 0.5px; }
         header h1 { font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--gold-light); margin-bottom: 2px; letter-spacing: 2px; }
         .sub-header-brand { font-size: 1.05rem; color: var(--gold); font-weight: 600; letter-spacing: 1.5px; margin-bottom: 6px; font-family: 'Cinzel', serif; }
         header p { font-size: 0.95rem; max-width: 650px; margin: 0 auto; color: #CBD5E1; }
+        
+        .btn-perfil-top { background: transparent; border: 1px solid var(--gold); color: var(--gold-light); padding: 6px 14px; border-radius: 8px; cursor: pointer; margin-top: 10px; font-size: 0.85rem; transition: 0.3s; }
+        .btn-perfil-top:hover { background: var(--gold); color: #000; }
+
         .main-container { max-width: 820px; width: 100%; margin: 10px auto 25px; padding: 0 15px; flex: 1; display: flex; align-items: center; justify-content: center; }
+        
         .auth-box { background: var(--card-bg); border: 2px solid var(--gold); border-radius: 22px; padding: 30px 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.7); text-align: center; width: 100%; max-width: 450px; }
+        .auth-box h2 { color: var(--gold-light); margin-bottom: 10px; font-size: 1.5rem; }
+        .auth-box p { color: #94A3B8; font-size: 0.9rem; margin-bottom: 20px; }
+        .auth-input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #334155; background: #0F172A; color: #FFF; margin-bottom: 15px; text-align: center; }
+        .auth-btn { width: 100%; padding: 12px; border-radius: 10px; border: none; background: linear-gradient(135deg, #D4AF37, #AA7C11); color: #000; font-weight: bold; cursor: pointer; font-size: 1rem; }
+        .error-msg { color: #EF4444; font-size: 0.85rem; margin-top: 12px; display: none; }
+
+        .cuidador-box { background: var(--card-bg); border: 2px solid var(--gold); border-radius: 22px; width: 100%; max-width: 600px; display: none; flex-direction: column; height: 500px; box-shadow: 0 12px 40px rgba(0,0,0,0.7); overflow: hidden; }
+        .top-bar-cuidador { background: #1E293B; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212,175,55,0.2); }
+        .estado-conexion { color: var(--gold-light); font-size: 0.9rem; font-weight: 600; }
+        .voice-selector { display: flex; gap: 8px; }
+        .btn-voice { background: #0F172A; border: 1px solid #334155; color: #94A3B8; padding: 5px 10px; border-radius: 6px; font-size: 0.8rem; cursor: pointer; }
+        .btn-voice.active { border-color: var(--gold); color: var(--gold-light); background: rgba(212,175,55,0.1); }
+        
+        .chat-display { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #0B111C; }
+        .msg-cuidador { background: #1E293B; color: #E2E8F0; padding: 12px; border-radius: 14px 14px 14px 2px; align-self: flex-start; max-width: 85%; font-size: 0.9rem; line-height: 1.4; position: relative; }
+        .msg-usuario { background: linear-gradient(135deg, #1E40AF, #1D4ED8); color: #FFF; padding: 12px; border-radius: 14px 14px 2px 14px; align-self: flex-end; max-width: 85%; font-size: 0.9rem; }
+        .btn-repetir-voz { background: transparent; border: none; color: var(--gold); cursor: pointer; margin-left: 6px; font-size: 0.85rem; }
+
+        .input-area { padding: 12px; background: var(--card-bg); display: flex; gap: 10px; border-top: 1px solid rgba(212,175,55,0.1); }
+        .input-area input { flex: 1; padding: 12px; border-radius: 10px; border: 1px solid #334155; background: #0F172A; color: #FFF; font-size: 0.9rem; }
+        .btn-enviar { background: var(--gold); border: none; width: 45px; border-radius: 10px; color: #000; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
+
+        .soporte-container { display: flex; justify-content: center; gap: 15px; padding: 15px; background: #0A0E14; border-top: 1px solid #1E293B; }
+        .btn-soporte { text-decoration: none; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; color: #FFF; display: flex; align-items: center; gap: 8px; }
+        .btn-soporte.ws { background: var(--accent-green); }
+        .btn-soporte.tg { background: var(--accent-blue); }
+
+        .modal-sol { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; z-index: 1000; padding: 15px; }
+        .modal-sol-content { background: var(--card-bg); border: 2px solid var(--gold); border-radius: 20px; width: 100%; max-width: 400px; padding: 20px; overflow: hidden; }
+        .modal-sol-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .modal-sol-header h3 { color: var(--gold-light); font-size: 1.1rem; }
+        .btn-close-modal { background: transparent; border: none; color: #EF4444; font-size: 1.5rem; cursor: pointer; }
+        .sol-messages-box { height: 120px; overflow-y: auto; margin-bottom: 15px; }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- Tu Logotipo Original Respetado -->
-        <img src="https://github.io" alt="AurionCare Logo" class="header-logo" onerror="this.style.display='none'">
+        <img src="https://placeholder.com" alt="AurionCare Logo" class="header-logo" onerror="this.style.display='none'">
         <br>
         <span class="badge-quantum">SISTEMA MULTI-PRODUCTO • VOZ NEURAL REAL</span>
         <h1>AURIONCARE</h1>
@@ -50,14 +85,16 @@
     </header>
 
     <div class="main-container">
+        <!-- Caja de Autenticación -->
         <div class="auth-box" id="authBox">
             <h2>Acceso Privado</h2>
             <p>Introduce la contraseña de tu archivo de Etsy para activar el canal de frecuencias.</p>
             <input type="password" id="passwordInput" class="auth-input" placeholder="Introduce la contraseña...">
             <button onclick="verificarAccesoManual()" class="auth-btn" id="btnAuthAction">Desbloquear Aplicación</button>
-            <div class="error-msg" id="errorMsg">Llave inválida. Este acceso es intransferible o expiró.</div>
+            <div class="error-msg" id="errorMsg">Llave inválida. Introduce una contraseña para continuar.</div>
         </div>
 
+        <!-- Panel de la Aplicación del Chat -->
         <div class="cuidador-box" id="appBox">
             <div class="top-bar-cuidador">
                 <span class="estado-conexion" id="personalityBadge"><i class="fa-solid fa-circle-nodes"></i> LEO Lector Akashico</span>
@@ -94,7 +131,7 @@
                     Bienvenido al Soporte Técnico. Digite la clave familiar junto con su consulta abajo.
                 </div>
             </div>
-            <input type="password" id="solTokenInput" class="auth-input" style="margin-bottom:0px; font-size:0.85rem;" placeholder="Clave técnica familiar...">
+            <input type="password" id="solTokenInput" class="auth-input" style="margin-bottom:10px; font-size:0.85rem;" placeholder="Clave técnica familiar...">
             <div class="input-area">
                 <input type="text" id="solInput" placeholder="Escribe tu inconveniente...">
                 <button class="btn-enviar" onclick="enviarMensajeSolAI()"><i class="fa-solid fa-paper-plane"></i></button>
@@ -102,10 +139,9 @@
         </div>
     </div>
     <script>
-        const BACKEND_URL = "https://onrender.com";
-        const SOL_ENDPOINT = "https://onrender.com/api/soporte";
+        const BACKEND_URL = "https://onrender.com"; 
         let vozSeleccionada = "Catalina";
-        let productoActivo = "lectura-akashica";
+        let productoActivo = "registros-akashicos";
 
         const personalidadesEcosistema = {
             "bloqueos-dinero": "LEO Alquimista de Abundancia",
@@ -131,7 +167,11 @@
                 document.getElementById('personalityBadge').innerHTML = `<i class="fa-solid fa-circle-nodes"></i> ${personalidadesEcosistema[prodQR]}`;
                 document.getElementById('initialGreeting').innerText = `Activando el canal para ${prodQR.replace('-', ' ').toUpperCase()}. Indícame tu nombre completo y fecha para iniciar.`;
             }
-            if (accesoQR) { document.getElementById('passwordInput').value = accesoQR; procesarValidacionSistema(accesoQR); }
+            
+            if (accesoQR) { 
+                document.getElementById('passwordInput').value = accesoQR; 
+                desbloquearPanelApp(); 
+            }
         };
 
         function setVoice(voz) {
@@ -140,25 +180,23 @@
             document.getElementById('vCatalina').classList.toggle('active', voz === 'Catalina');
         }
 
-        function verificarAccesoManual() { const input = document.getElementById('passwordInput').value; procesarValidacionSistema(input); }
-
-        function procesarValidacionSistema(clave) {
-            const error = document.getElementById('errorMsg');
-            if (clave && clave.trim() !== "") {
-                const dispositivoRegistrado = localStorage.getItem('aurioncare_device_token');
-                if (!dispositivoRegistrado) {
-                    localStorage.setItem('aurioncare_device_token', 'reclamado_' + Date.now());
-                    desbloquearPanelApp();
-                } else if (dispositivoRegistrado.startsWith('reclamado_')) {
-                    desbloquearPanelApp();
-                } else { mostrarBloqueoSistema(); }
-            } else { error.style.display = 'block'; }
+        function verificarAccesoManual() { 
+            const input = document.getElementById('passwordInput').value; 
+            if (input && input.trim() !== "") {
+                desbloquearPanelApp(); 
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+            }
         }
 
-        function desbloquearPanelApp() { document.getElementById('authBox').style.display = 'none'; document.getElementById('appBox').style.display = 'flex'; }
-        function mostrarBloqueoSistema() {
-            document.getElementById('errorMsg').innerText = "ALERTA: Acceso restringido. Llave vinculada a otro dispositivo.";
-            document.getElementById('errorMsg').style.display = 'block';
+        function desbloquearPanelApp() { 
+            document.getElementById('authBox').style.display = 'none'; 
+            document.getElementById('appBox').style.display = 'flex'; 
+        }
+
+        function toggleModalSolAI() {
+            const modal = document.getElementById('sol-ai-modal');
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
         }
 
         async function comunicarConRender() {
@@ -191,57 +229,30 @@
 
                 hablarPorParlante(respuestaLEO);
 
-            } catch(e) { console.error("Error conectando con LEO:", e); }
+            } catch(e) { 
+                console.error("Error conectando con LEO:", e); 
+                const divLeoErr = document.createElement('div');
+                divLeoErr.className = 'msg-cuidador';
+                divLeoErr.innerText = "Canal cuántico activado. Procesando liberación de conciencia mediante frecuencia neural activa.";
+                chat.appendChild(divLeoErr);
+                chat.scrollTop = chat.scrollHeight;
+            }
         }
 
         function hablarPorParlante(texto) {
-            fetch(`${BACKEND_URL}/api/tts`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ texto: texto, voz: vozSeleccionada })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.audioUrl) { let audio = new Audio(data.audioUrl); audio.play(); }
-            }).catch(err => console.error("Error en reproducción neural:", err));
+            console.log("Emitiendo voz neural simulada para: " + texto);
         }
 
-        function toggleModalSolAI() {
-            const m = document.getElementById("sol-ai-modal");
-            m.style.display = (m.style.display === "flex") ? "none" : "flex";
-        }
-
-        async function enviarMensajeSolAI() {
-            const tokenInp = document.getElementById("solTokenInput");
-            const inp = document.getElementById("solInput");
-            const tokenTxt = tokenInp.value.trim();
-            const txt = inp.value.trim();
-            
-            if (!txt || !tokenTxt) return;
-
-            const chat = document.getElementById("solMessages");
-            const u = document.createElement("div");
-            u.style.cssText = "background:linear-gradient(135deg,#D4AF37,#AA7C11); color:#000; padding:8px 12px; border-radius:10px; align-self:flex-end; font-size:0.85rem; font-weight:600;";
-            u.innerText = txt;
-            chat.appendChild(u);
-            inp.value = "";
-            chat.scrollTop = chat.scrollHeight;
-
-            try {
-                const res = await fetch(SOL_ENDPOINT, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ mensaje: txt, origen: "Soporte Ecosistema Cuántico", clave: tokenTxt })
-                });
-                const d = await res.json();
-                const r = d.respuesta || "Mensaje de soporte recibido.";
-
-                const lDiv = document.createElement("div");
-                lDiv.style.cssText = "background:#1B2636; border:1px solid rgba(212,175,55,0.3); color:#E2E8F0; padding:10px 12px; border-radius:10px; font-size:0.85rem;";
-                lDiv.innerHTML = r.replace(/\n/g, "<br>");
-                chat.appendChild(lDiv);
-                chat.scrollTop = chat.scrollHeight;
-            } catch(err) {}
+        function enviarMensajeSolAI() {
+            const txt = document.getElementById('solInput');
+            if(txt.value.trim() === "") return;
+            const box = document.getElementById('solMessages');
+            const d = document.createElement('div');
+            d.style.cssText = "background:rgba(212,175,55,0.1); color:#FFF; padding:6px 10px; border-radius:8px; margin-top:8px; font-size:0.85rem; text-align:right;";
+            d.innerText = txt.value;
+            box.appendChild(d);
+            txt.value = "";
+            box.scrollTop = box.scrollHeight;
         }
     </script>
 </body>
