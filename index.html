@@ -3,280 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- ESTRATEGIA SEO AVANZADA PARA GOOGLE Y ETSY -->
-    <title>AURIONCARE | Ecosistema Cuántico • LEO AI & Registros Akáshicos</title>
-    <meta name="description" content="Plataforma cuántica interactiva de AurionCare. Desprogramación subconsciente, limpieza de karma, corte de lazos kármicos y reprogramación con el Maestro LEO.">
-    <meta name="keywords" content="Registros Akashicos, Limpieza de Karma, Cortes Karmicos, Votos de Pobreza, Desprogramacion Subconsciente, Sanacion Ancestral, Abundancia Cuantica, Aurioncare, Leo AI">
-    <meta name="robots" content="index, follow">
-    
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="https://cloudflare.com">
-    
+    <title>AurionCare | Ecosistema Cuántico y Diario Interactivo</title>
     <style>
-        :root {
-            --bg-dark: #0B0F17;
-            --card-bg: #141C28;
-            --gold: #D4AF37;
-            --gold-light: #F6E7B0;
-            --text-light: #F8FAFC;
-            --accent-green: #25D366;
-            --accent-blue: #0088cc;
-            --accent-purple: #A78BFA;
+        /* Protecciones contra copia y selección */
+        body {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            background-color: #0b0f19;
+            color: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; user-select: none; }
-        body { background-color: var(--bg-dark); color: var(--text-light); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
-        header { background: linear-gradient(180deg, #182232 0%, var(--bg-dark) 100%); border-bottom: 2px solid var(--gold); padding: 22px 15px 16px; text-align: center; position: relative; }
-        .header-logo { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--gold); object-fit: cover; margin-bottom: 8px; box-shadow: 0 0 20px rgba(212, 175, 55, 0.35); }
-        .badge-quantum { background: linear-gradient(135deg, #D4AF37, #AA7C11); color: #0A0E14; padding: 4px 18px; border-radius: 20px; font-weight: 700; display: inline-block; margin-bottom: 6px; font-size: 0.85rem; letter-spacing: 0.5px; }
-        header h1 { font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--gold-light); margin-bottom: 2px; letter-spacing: 2px; }
-        .sub-header-brand { font-size: 1.05rem; color: var(--gold); font-weight: 600; letter-spacing: 1.5px; margin-bottom: 6px; font-family: 'Cinzel', serif; }
-        header p { font-size: 0.95rem; max-width: 650px; margin: 0 auto; color: #CBD5E1; }
-        
-        /* CORRECCIÓN CRÍTICA DE DISEÑO PARA MÓVILES */
-        .main-container { max-width: 500px; width: 100%; margin: 15px auto 25px; padding: 0 15px; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .auth-box { background: var(--card-bg); border: 2px solid var(--gold); border-radius: 22px; padding: 30px 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.7); text-align: center; width: 100%; }
+        .container {
+            max-width: 700px;
+            background: #131b2e;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #1e293b;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        .logo {
+            width: 140px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.3));
+        }
+        h1 { color: #facc15; font-size: 24px; margin-bottom: 10px; letter-spacing: 1px; }
+        h2 { color: #38bdf8; font-size: 18px; margin-bottom: 20px; font-weight: 400; }
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            color: #fca5a5;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        .leo-card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #facc15;
+            text-align: left;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #facc15;
+            color: #0b0f19;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: #eab308; }
     </style>
-</head>
-<style>
-    .auth-box h2 { font-family: 'Cinzel', serif; color: var(--gold-light); margin-bottom: 15px; font-size: 1.5rem; }
-    .auth-box p { font-size: 0.9rem; color: #CBD5E1; margin-bottom: 20px; }
-    .auth-input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.5); background: #0D131F; color: white; font-size: 1rem; text-align: center; margin-bottom: 15px; user-select: text; }
-    .auth-btn { background: linear-gradient(135deg, #D4AF37, #AA7C11); color: #0A0E14; border: none; padding: 12px 25px; border-radius: 10px; font-weight: 700; cursor: pointer; width: 100%; transition: opacity 0.2s; }
-    .btn-perfil-top { position: absolute; top: 15px; right: 15px; background: #182333; border: 1px solid var(--gold); color: var(--gold-light); border-radius: 20px; padding: 6px 14px; font-size: 0.85rem; cursor: pointer; font-weight: 600; }
-    
-    /* CAMBIO ESTRICTO DE DISPLAY PARA OCULTAR INICIALMENTE */
-    .cuidador-box { background: var(--card-bg); border: 2px solid var(--gold); border-radius: 22px; padding: 20px 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.7); display: none; flex-direction: column; gap: 12px; width: 100%; }
-    
-    .top-bar-cuidador { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.25); padding-bottom: 8px; }
-    .estado-conexion { color: var(--accent-purple); font-size: 0.95rem; font-weight: 600; }
-    .voice-selector { display: flex; gap: 10px; margin-bottom: 5px; }
-    .btn-voice { flex: 1; padding: 6px 12px; background: #0D131F; border: 1px solid rgba(212,175,55,0.3); color: var(--text-light); border-radius: 15px; cursor: pointer; font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px; }
-    .btn-voice.active { background: rgba(212, 175, 55, 0.2); border-color: var(--gold); color: var(--gold-light); font-weight: 600; }
-    .chat-display { background: #0D131F; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 18px 16px; min-height: 320px; max-height: 440px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
-    .msg-cuidador { background: #182333; border: 1.5px solid rgba(212, 175, 55, 0.35); color: #FFFDF7; padding: 14px 18px; border-radius: 18px 18px 18px 4px; max-width: 90%; font-size: 1.05rem; line-height: 1.5; align-self: flex-start; }
-    .msg-usuario { background: rgba(212, 175, 55, 0.15); border: 1.5px solid var(--gold); color: #FFFDF7; padding: 14px 18px; border-radius: 18px 18px 4px 18px; max-width: 90%; font-size: 1.05rem; line-height: 1.5; align-self: flex-end; user-select: text; }
-    .btn-repetir-voz { background: rgba(212, 175, 55, 0.15); border: 1px solid var(--gold); color: var(--gold-light); border-radius: 50%; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; align-self: flex-end; margin-top: 4px; }
-    .input-area { display: flex; gap: 8px; }
-    .input-area input { flex: 1; padding: 12px; background: #0D131F; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white; user-select: text; }
-    .btn-enviar { background: var(--gold); border: none; color: #0A0E14; padding: 0 20px; border-radius: 10px; cursor: pointer; font-weight: 600; }
-    .soporte-container { display: flex; justify-content: center; gap: 15px; padding: 15px; background: rgba(24, 34, 50, 0.5); border-top: 1px solid rgba(212, 175, 55, 0.2); width: 100%; }
-    .btn-soporte { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 25px; text-decoration: none; color: white; font-weight: 600; font-size: 0.9rem; transition: transform 0.2s; }
-    .modal-sol { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 15px; }
-    .modal-sol-content { background: var(--card-bg); border: 2px solid var(--gold); width: 100%; max-width: 450px; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-    .modal-sol-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212,175,55,0.2); padding-bottom: 8px; }
-    .modal-sol-header h3 { font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 1.1rem; }
-    .btn-close-modal { background: none; border: none; color: #ef4444; font-size: 1.2rem; cursor: pointer; }
-    .sol-messages-box { background: #0D131F; height: 200px; overflow-y: auto; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px; border: 1px solid rgba(255,255,255,0.05); }
-</style>
+    <script>
+        // Bloquear clic derecho para evitar inspección rápida o copias indebidas
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Bloquear atajos comunes de copiado (Ctrl+C, Ctrl+U, etc.)
+        document.addEventListener('keydown', event => {
+            if (event.ctrlKey && (event.key === 'c' || event.key === 'u' || event.key === 's' || event.key === 'p')) {
+                event.preventDefault();
+                alert("Este material es personal e intransferible. Protegido por los derechos del Ecosistema Cuántico AurionCare.");
+            }
+        });
+    </script>
 </head>
 <body>
-    <header>
-        <img src="https://github.io" alt="AurionCare Logo" class="header-logo" onerror="this.style.display='none'">
-        <br>
-        <span class="badge-quantum">SISTEMA MULTI-PRODUCTO • VOZ NEURAL REAL</span>
-        <h1>AURIONCARE</h1>
-        <div class="sub-header-brand">Ecosistema Cuántico</div>
-        <p>Tu acceso exclusivo sintoniza con las 11 personalidades del Maestro LEO.</p>
-        <button class="btn-perfil-top" onclick="toggleModalSolAI()"><i class="fa-solid fa-headset"></i> Soporte IA</button>
-    </header>
 
-    <div class="main-container">
-        <div class="auth-box" id="authBox">
-            <h2>Acceso Privado</h2>
-            <p>Introduce la contraseña de tu archivo de Etsy para activar el canal de frecuencias.</p>
-            <input type="password" id="passwordInput" class="auth-input" placeholder="Introduce la contraseña...">
-            <button onclick="verificarAccesoManual()" class="auth-btn" id="btnAuthAction">Desbloquear Aplicación</button>
-            <div class="error-msg" id="errorMsg">Llave inválida. Este acceso es intransferible o expiró.</div>
+    <div class="container">
+        <!-- Logo de AurionCare -->
+        <img src="logo.png" alt="AurionCare Logo" class="logo">
+        
+        <h1>AURIONCARE • ECOSISTEMA CUÁNTICO</h1>
+        <h2>Camino de Vuelta a la Conciencia Pura</h2>
+
+        <div class="warning-box">
+            <strong>Aviso de Uso Personal e Intransferible:</strong> Este acceso es único y exclusivo para la persona que ha adquirido el material[span_0](start_span)[span_0](end_span). Está prohibido su copia, distribución o divulgación[span_1](start_span)[span_1](end_span). El proceso opera desde la soberanía de tu propia conciencia.
         </div>
 
-        <div class="cuidador-box" id="appBox">
-            <div class="top-bar-cuidador">
-                <span class="estado-conexion" id="personalityBadge"><i class="fa-solid fa-circle-nodes"></i> LEO Lector Akashico</span>
-                <div class="voice-selector">
-                    <button class="btn-voice" id="vAlvaro" onclick="setVoice('Alvaro')"><i class="fa-solid fa-user-astronaut"></i> Álvaro</button>
-                    <button class="btn-voice active" id="vCatalina" onclick="setVoice('Catalina')"><i class="fa-solid fa-user-gradient"></i> Catalina</button>
-                </div>
-            </div>
-            <div class="chat-display" id="chatDisplay">
-                <div class="msg-cuidador" id="initialGreeting">
-                    Sincronizando con tus campos energéticos... Por favor, indícame tu nombre, fecha de nacimiento e intención de sanación para abrir tus crónicas.
-                </div>
-            </div>
-            <div class="input-area">
-                <input type="text" id="userInput" placeholder="Escribe tu consulta aquí...">
-                <button class="btn-enviar" onclick="comunicarConRender()"><i class="fa-solid fa-microphone-lines"></i> Enviar</button>
-            </div>
+        <div id="contenido-dinamico">
+            <p>Sintonizando con tu espacio cuántico...</p>
         </div>
     </div>
 
-    <div class="soporte-container">
-        <a href="https://wa.me" target="_blank" class="btn-soporte ws" style="background:#25D366;"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-        <a href="https://t.me" target="_blank" class="btn-soporte tg" style="background:#0088cc;"><i class="fa-brands fa-telegram"></i> Telegram</a>
-    </div>
-
-    <div class="modal-sol" id="sol-ai-modal">
-        <div class="modal-sol-content">
-            <div class="modal-sol-header">
-                <h3><i class="fa-solid fa-robot"></i> Soporte Técnico</h3>
-                <button class="btn-close-modal" onclick="toggleModalSolAI()">&times;</button>
-            </div>
-            <div class="sol-messages-box" id="solMessages">
-                <div style="background:#1B2636; color:#E2E8F0; padding:10px 12px; border-radius:10px; font-size:0.85rem;">
-                    Bienvenido. Digite la clave familiar junto con su consulta abajo.
-                </div>
-            </div>
-            <input type="password" id="solTokenInput" class="auth-input" style="margin-bottom:0px; font-size:0.85rem;" placeholder="Clave técnica familiar...">
-            <div class="input-area">
-                <input type="text" id="solInput" placeholder="Escribe tu inconveniente...">
-                <button class="btn-enviar" onclick="enviarMensajeSolAI()"><i class="fa-solid fa-paper-plane"></i></button>
-            </div>
-        </div>
-    </div>
     <script>
-        const BACKEND_URL = "https://onrender.com";
-        const SOL_ENDPOINT = "https://onrender.com/api/soporte";
-        let vozSeleccionada = "Catalina";
-        let productoActivo = "lectura-akashica";
+        // Mapeo de personalidades de LEO Maestro según el código de producto recibido en la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productoCod = urlParams.get('producto') || 'desprogramacion';
 
-        const personalidadesEcosistema = {
-            "bloqueos-dinero": "LEO Alquimista de Abundancia",
-            "registros-akashicos": "LEO Lector de Registros Akáshicos",
-            "limpieza-karma": "LEO Oráculo de Liberación",
-            "votos-pobreza": "LEO Destructor de Votos de Pobreza",
-            "desprogramacion": "LEO Alquimista Subconsciente",
-            "sanacion-ancestral": "LEO Guía de Linaje Ancestral",
-            "arbol-genealogo": "LEO Constelador Cuántico Familiar",
-            "decretos-yo-soy": "LEO Canalizador de Alta Frecuencia",
-            "abundancia-cuantica": "LEO Programador de Opulencia",
-            "borrado-subconsciente": "LEO Alquimista del Pensamiento",
-            "elevacion-conciencia": "LEO Maestro de Luz"
-        };
-
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const accesoQR = urlParams.get('acceso');
-            const prodQR = urlParams.get('prod');
-            
-            if (prodQR && personalidadesEcosistema[prodQR]) {
-                productoActivo = prodQR;
-                document.getElementById('personalityBadge').innerHTML = `<i class="fa-solid fa-circle-nodes"></i> ${personalidadesEcosistema[prodQR]}`;
-                document.getElementById('initialGreeting').innerText = `Activando el canal para ${prodQR.replace('-', ' ').toUpperCase()}. Indícame tu nombre completo y fecha para iniciar.`;
+        const personalidadesLEO = {
+            'bloqueos-dinero': {
+                nombre: 'LEO Alquimista de Abundancia',
+                proposito: 'Remoción de patrones de escasez y deudas ancestrales desde la Línea Media.'
+            },
+            'registros-akashicos': {
+                nombre: 'LEO Lector de Registros Akáshicos',
+                proposito: 'Localización en el Libro del Alma de la memoria original que bloquea tu manifestación.'
+            },
+            'limpieza-karma': {
+                nombre: 'LEO Oráculo de Liberación',
+                proposito: 'Revocación de pactos limitantes y contratos sin esfuerzo ni expectativas.'
+            },
+            'votos-pobreza': {
+                nombre: 'LEO Destructor de Votos de Pobreza',
+                proposito: 'Anulación de votos de sacrificio o carencia reconociendo tu Conciencia Pura.'
+            },
+            'desprogramacion': {
+                nombre: 'LEO Alquimista Subconsciente',
+                proposito: 'Desarticulación de mandatos mentales y de la respuesta automática de huida o defensa.'
             }
-            if (accesoQR) { document.getElementById('passwordInput').value = accesoQR; procesarValidacionSistema(accesoQR); }
         };
 
-        function setVoice(voz) {
-            vozSeleccionada = voz;
-            document.getElementById('vAlvaro').classList.toggle('active', voz === 'Alvaro');
-            document.getElementById('vCatalina').classList.toggle('active', voz === 'Catalina');
-        }
+        const leoActual = personalidadesLEO[productoCod] || personalidadesLEO['desprogramacion'];
 
-        function verificarAccesoManual() { const input = document.getElementById('passwordInput').value; procesarValidacionSistema(input); }
-
-        function procesarValidacionSistema(clave) {
-            const error = document.getElementById('errorMsg');
-            if (clave && clave.trim() !== "") {
-                const dispositivoRegistrado = localStorage.getItem('aurioncare_device_token');
-                if (!dispositivoRegistrado) {
-                    localStorage.setItem('aurioncare_device_token', 'reclamado_' + Date.now());
-                    desbloquearPanelApp();
-                } else if (dispositivoRegistrado.startsWith('reclamado_')) {
-                    desbloquearPanelApp();
-                } else { mostrarBloqueoSistema(); }
-            } else { error.style.display = 'block'; }
-        }
-
-        function desbloquearPanelApp() { 
-            document.getElementById('authBox').style.display = 'none'; 
-            document.getElementById('appBox').style.display = 'flex'; 
-        }
-        function mostrarBloqueoSistema() {
-            document.getElementById('errorMsg').innerText = "ALERTA: Acceso restringido. Llave vinculada a otro dispositivo.";
-            document.getElementById('errorMsg').style.display = 'block';
-        }
-
-        async function comunicarConRender() {
-            const input = document.getElementById('userInput');
-            const chat = document.getElementById('chatDisplay');
-            if (input.value.trim() === "") return;
-
-            const mensajeCliente = input.value;
-            const divUser = document.createElement('div');
-            divUser.className = 'msg-usuario';
-            divUser.innerText = mensajeCliente;
-            chat.appendChild(divUser);
-            input.value = "";
-            chat.scrollTop = chat.scrollHeight;
-
-            try {
-                const res = await fetch(`${BACKEND_URL}/api/voz-neural`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ mensaje: mensajeCliente, voz: vozSeleccionada, producto: productoActivo })
-                });
-                const data = await res.json();
-                const respuestaLEO = data.respuesta || "Frecuencia sincronizada con éxito.";
-
-                const divLeo = document.createElement('div');
-                divLeo.className = 'msg-cuidador';
-                divLeo.innerHTML = `${respuestaLEO} <button class="btn-repetir-voz" onclick="hablarPorParlante('${respuestaLEO.replace(/'/g, "\\'")}')">🔊</button>`;
-                chat.appendChild(divLeo);
-                chat.scrollTop = chat.scrollHeight;
-
-                hablarPorParlante(respuestaLEO);
-
-            } catch(e) { console.error("Error conectando con LEO:", e); }
-        }
-
-        function hablarPorParlante(texto) {
-            fetch(`${BACKEND_URL}/api/tts`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ texto: texto, voz: vozSeleccionada })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.audioUrl) { let audio = new Audio(data.audioUrl); audio.play(); }
-            }).catch(err => console.error("Error en reproducción neural:", err));
-        }
-
-        function toggleModalSolAI() {
-            const m = document.getElementById("sol-ai-modal");
-            m.style.display = (m.style.display === "flex") ? "none" : "flex";
-        }
-
-        async function enviarMensajeSolAI() {
-            const tokenInp = document.getElementById("solTokenInput");
-            const inp = document.getElementById("solInput");
-            const tokenTxt = tokenInp.value.trim();
-            const txt = inp.value.trim();
-            if (!txt || !tokenTxt) return;
-
-            const chat = document.getElementById("solMessages");
-            const u = document.createElement("div");
-            u.style.cssText = "background:linear-gradient(135deg,#D4AF37,#AA7C11); color:#000; padding:8px 12px; border-radius:10px; align-self:flex-end; font-size:0.85rem; font-weight:600;";
-            u.innerText = txt;
-            chat.appendChild(u);
-            inp.value = "";
-            chat.scrollTop = chat.scrollHeight;
-
-            try {
-                const res = await fetch(SOL_ENDPOINT, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ mensaje: txt, origen: "Soporte Ecosistema Cuántico", clave: tokenTxt })
-                });
-                const d = await res.json();
-                const r = d.respuesta || "Mensaje de soporte recibido.";
-
-                const lDiv = document.createElement("div");
-                lDiv.style.cssText = "background:#1B2636; color:#E2E8F0; padding:10px 12px; border-radius:10px; font-size:0.85rem;";
-                lDiv.innerHTML = r.replace(/\n/g, "<br>");
-                chat.appendChild(lDiv);
-                chat.scrollTop = chat.scrollHeight;
-            } catch(err) {}
-        }
+        // Renderizar la información en la pantalla de forma interactiva
+        document.getElementById('contenido-dinamico').innerHTML = `
+            <div class="leo-card">
+                <strong>Guía Activo:</strong> ${leoActual.nombre}<br><br>
+                <strong>Propósito de este espacio:</strong> ${leoActual.proposito}<br><br>
+                <em>Recuerda: Coloca tu conciencia en tu línea media y en tu centro luminoso sin expectativas. El subconsciente coopera cuando eres tú quien ordena la casa desde tu propia presencia.</em>
+            </div>
+            <a href="#" class="btn" onclick="alert('Iniciando sintonización cuántica en el Punto Cero...'); return false;">Sintonizar y Activar Conciencia Pura</a>
+        `;
     </script>
 </body>
 </html>
