@@ -789,12 +789,24 @@
                     agregarMensajeChat('msg-cuidador', textoRespuesta);
                     if (data.audio_url) {
                         reproducirAudioBluetooth(data.audio_url);
+                    } else {
+                        hablarVozLocal(textoRespuesta);
                     }
                 } else {
                     agregarMensajeChat('msg-cuidador', 'Tus palabras han sido recibidas en las páginas del registro.');
                 }
             } catch (error) {
                 agregarMensajeChat('msg-cuidador', 'El registro abraza tu mensaje con amor y presencia.');
+            }
+        }
+
+        function hablarVozLocal(texto) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(texto);
+                utterance.lang = 'es-ES';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
             }
         }
 
