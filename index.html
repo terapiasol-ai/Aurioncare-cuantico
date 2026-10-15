@@ -25,7 +25,7 @@
         }
         .container {
             width: 100%;
-            max-width: 480px;
+            max-width: 520px;
             background: var(--card-bg);
             border: 2px solid var(--gold-primary);
             border-radius: 12px;
@@ -74,7 +74,7 @@
             font-size: 1rem;
             box-sizing: border-box;
         }
-        .btn-fingerprint {
+        .btn-action {
             width: 100%;
             padding: 15px;
             background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
@@ -88,8 +88,27 @@
             margin-top: 10px;
             transition: opacity 0.3s;
         }
-        .btn-fingerprint:hover {
+        .btn-action:hover {
             opacity: 0.9;
+        }
+        .tomo-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: #1e1e1e;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-sizing: border-box;
+            transition: background 0.3s, color 0.3s;
+        }
+        .tomo-btn:hover {
+            background: var(--gold-primary);
+            color: #000;
         }
         .status-msg {
             margin-top: 15px;
@@ -103,22 +122,29 @@
     <div class="container">
         <div class="logo"></div>
         <h1>AURIONCARE</h1>
-        <p>Experiencia de Activación Soberana<br>Acceso Exclusivo e Intransferible</p>
+        <p>Ecosistema Cuántico • Diario Interactivo<br>Activación Soberana</p>
 
+        <!-- Sección de Validación Inicial -->
         <div id="auth-section">
             <div class="form-group">
                 <label for="userName">NOMBRE DE REGISTRO SOBERANO</label>
                 <input type="text" id="userName" placeholder="Ingrese su nombre completo" required>
             </div>
 
-            <button class="btn-fingerprint" onclick="registrarAcceso()">REGISTRAR HUELLA DIGITAL</button>
+            <button class="btn-action" onclick="registrarAcceso()">REGISTRAR Y VERIFICAR DISPOSITIVO</button>
             <div id="status" class="status-msg"></div>
         </div>
 
+        <!-- Sección del Menú con los 5 Tomos (Se muestra tras validar) -->
         <div id="session-section" style="display:none;">
-            <p style="color: #6fdf6f;">✓ Identidad verificada y vinculada al dispositivo.</p>
-            <p>Conectando de forma privada con el sistema de Leo (Voz Álvaro Neural)...</p>
-            <!-- Aquí se despliega la interfaz interactiva específica del tomo correspondiente -->
+            <p style="color: #6fdf6f;">✓ Identidad verificada con éxito.</p>
+            <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 15px;">Seleccione el tomo adquirido para conectar con el sistema de Leo (Voz Álvaro Neural):</p>
+            
+            <a href="?producto=registros-akashicos" class="tomo-btn">Volumen 1: Registros Akáshicos</a>
+            <a href="?producto=liberacion-karma" class="tomo-btn">Volumen 2: Liberación de Karma</a>
+            <a href="?producto=votos-pobreza" class="tomo-btn">Volumen 3: Votos de Pobreza</a>
+            <a href="?producto=sanacion-ancestral" class="tomo-btn">Volumen 4: Sanación Ancestral</a>
+            <a href="?producto=manual-observador" class="tomo-btn">Volumen 5: Manual del Observador</a>
         </div>
     </div>
 
@@ -132,23 +158,14 @@
                 return;
             }
 
-            // Simulación de verificación biométrica y bloqueo de clonación
-            statusDiv.innerText = "Validando firma biométrica en el dispositivo...";
+            statusDiv.innerText = "Vinculando biometría y dispositivo...";
             
             setTimeout(() => {
-                if (window.PublicKeyCredential) {
-                    // Validación de huella mediante WebAuthn o registro local seguro
-                    statusDiv.innerText = "Huella registrada con éxito. Iniciando sesión...";
-                    setTimeout(() => {
-                        document.getElementById('auth-section').style.display = 'none';
-                        document.getElementById('session-section').style.display = 'block';
-                        // Aquí se gatilla la conexión aislada con Leo para este tomo específico
-                    }, 1200);
-                } else {
-                    statusDiv.innerText = "Dispositivo validado de forma segura.";
+                statusDiv.innerText = "¡Acceso concedido!";
+                setTimeout(() => {
                     document.getElementById('auth-section').style.display = 'none';
                     document.getElementById('session-section').style.display = 'block';
-                }
+                }, 800);
             }, 1000);
         }
     </script>
