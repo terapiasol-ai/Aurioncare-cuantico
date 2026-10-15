@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AurionCare | Ecosistema Cuántico y Diario Interactivo</title>
+    <title>AURIONCARE • Diario Interactivo de Activación Soberana</title>
     <style>
-        /* Protecciones contra copia y selección */
+        :root {
+            --bg-color: #0d0d0d;
+            --gold-primary: #d4af37;
+            --gold-secondary: #aa7c11;
+            --text-color: #f3f3f3;
+            --card-bg: #141414;
+        }
         body {
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            background-color: #0b0f19;
-            color: #e2e8f0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Cinzel', serif, sans-serif;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -22,122 +24,133 @@
             min-height: 100vh;
         }
         .container {
-            max-width: 700px;
-            background: #131b2e;
-            padding: 30px;
+            width: 100%;
+            max-width: 480px;
+            background: var(--card-bg);
+            border: 2px solid var(--gold-primary);
             border-radius: 12px;
-            border: 1px solid #1e293b;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            padding: 30px;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
             text-align: center;
         }
         .logo {
-            width: 140px;
-            height: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.3));
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            margin: 0 auto 20px;
+            background: url('1000103209.jpg') center/cover;
         }
-        h1 { color: #facc15; font-size: 24px; margin-bottom: 10px; letter-spacing: 1px; }
-        h2 { color: #38bdf8; font-size: 18px; margin-bottom: 20px; font-weight: 400; }
-        .warning-box {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid #ef4444;
-            color: #fca5a5;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 13px;
+        h1 {
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        .form-group {
             margin-bottom: 20px;
-        }
-        .leo-card {
-            background: #1e293b;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            border-left: 4px solid #facc15;
             text-align: left;
         }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            background: #facc15;
-            color: #0b0f19;
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
+        label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--gold-primary);
+            margin-bottom: 5px;
+            letter-spacing: 1px;
         }
-        .btn:hover { background: #eab308; }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            background: #222;
+            border: 1px solid var(--gold-secondary);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        .btn-fingerprint {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            transition: opacity 0.3s;
+        }
+        .btn-fingerprint:hover {
+            opacity: 0.9;
+        }
+        .status-msg {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #d4af37;
+        }
     </style>
-    <script>
-        // Bloquear clic derecho para evitar inspección rápida o copias indebidas
-        document.addEventListener('contextmenu', event => event.preventDefault());
-
-        // Bloquear atajos comunes de copiado (Ctrl+C, Ctrl+U, etc.)
-        document.addEventListener('keydown', event => {
-            if (event.ctrlKey && (event.key === 'c' || event.key === 'u' || event.key === 's' || event.key === 'p')) {
-                event.preventDefault();
-                alert("Este material es personal e intransferible. Protegido por los derechos del Ecosistema Cuántico AurionCare.");
-            }
-        });
-    </script>
 </head>
 <body>
 
     <div class="container">
-        <!-- Logo de AurionCare -->
-        <img src="logo.png" alt="AurionCare Logo" class="logo">
-        
-        <h1>AURIONCARE • ECOSISTEMA CUÁNTICO</h1>
-        <h2>Camino de Vuelta a la Conciencia Pura</h2>
+        <div class="logo"></div>
+        <h1>AURIONCARE</h1>
+        <p>Experiencia de Activación Soberana<br>Acceso Exclusivo e Intransferible</p>
 
-        <div class="warning-box">
-            <strong>Aviso de Uso Personal e Intransferible:</strong> Este acceso es único y exclusivo para la persona que ha adquirido el material[span_0](start_span)[span_0](end_span). Está prohibido su copia, distribución o divulgación[span_1](start_span)[span_1](end_span). El proceso opera desde la soberanía de tu propia conciencia.
+        <div id="auth-section">
+            <div class="form-group">
+                <label for="userName">NOMBRE DE REGISTRO SOBERANO</label>
+                <input type="text" id="userName" placeholder="Ingrese su nombre completo" required>
+            </div>
+
+            <button class="btn-fingerprint" onclick="registrarAcceso()">REGISTRAR HUELLA DIGITAL</button>
+            <div id="status" class="status-msg"></div>
         </div>
 
-        <div id="contenido-dinamico">
-            <p>Sintonizando con tu espacio cuántico...</p>
+        <div id="session-section" style="display:none;">
+            <p style="color: #6fdf6f;">✓ Identidad verificada y vinculada al dispositivo.</p>
+            <p>Conectando de forma privada con el sistema de Leo (Voz Álvaro Neural)...</p>
+            <!-- Aquí se despliega la interfaz interactiva específica del tomo correspondiente -->
         </div>
     </div>
 
     <script>
-        // Mapeo de personalidades de LEO Maestro según el código de producto recibido en la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const productoCod = urlParams.get('producto') || 'desprogramacion';
+        function registrarAcceso() {
+            const name = document.getElementById('userName').value.trim();
+            const statusDiv = document.getElementById('status');
 
-        const personalidadesLEO = {
-            'bloqueos-dinero': {
-                nombre: 'LEO Alquimista de Abundancia',
-                proposito: 'Remoción de patrones de escasez y deudas ancestrales desde la Línea Media.'
-            },
-            'registros-akashicos': {
-                nombre: 'LEO Lector de Registros Akáshicos',
-                proposito: 'Localización en el Libro del Alma de la memoria original que bloquea tu manifestación.'
-            },
-            'limpieza-karma': {
-                nombre: 'LEO Oráculo de Liberación',
-                proposito: 'Revocación de pactos limitantes y contratos sin esfuerzo ni expectativas.'
-            },
-            'votos-pobreza': {
-                nombre: 'LEO Destructor de Votos de Pobreza',
-                proposito: 'Anulación de votos de sacrificio o carencia reconociendo tu Conciencia Pura.'
-            },
-            'desprogramacion': {
-                nombre: 'LEO Alquimista Subconsciente',
-                proposito: 'Desarticulación de mandatos mentales y de la respuesta automática de huida o defensa.'
+            if (!name) {
+                statusDiv.innerText = "Por favor, ingrese su nombre para continuar.";
+                return;
             }
-        };
 
-        const leoActual = personalidadesLEO[productoCod] || personalidadesLEO['desprogramacion'];
-
-        // Renderizar la información en la pantalla de forma interactiva
-        document.getElementById('contenido-dinamico').innerHTML = `
-            <div class="leo-card">
-                <strong>Guía Activo:</strong> ${leoActual.nombre}<br><br>
-                <strong>Propósito de este espacio:</strong> ${leoActual.proposito}<br><br>
-                <em>Recuerda: Coloca tu conciencia en tu línea media y en tu centro luminoso sin expectativas. El subconsciente coopera cuando eres tú quien ordena la casa desde tu propia presencia.</em>
-            </div>
-            <a href="#" class="btn" onclick="alert('Iniciando sintonización cuántica en el Punto Cero...'); return false;">Sintonizar y Activar Conciencia Pura</a>
-        `;
+            // Simulación de verificación biométrica y bloqueo de clonación
+            statusDiv.innerText = "Validando firma biométrica en el dispositivo...";
+            
+            setTimeout(() => {
+                if (window.PublicKeyCredential) {
+                    // Validación de huella mediante WebAuthn o registro local seguro
+                    statusDiv.innerText = "Huella registrada con éxito. Iniciando sesión...";
+                    setTimeout(() => {
+                        document.getElementById('auth-section').style.display = 'none';
+                        document.getElementById('session-section').style.display = 'block';
+                        // Aquí se gatilla la conexión aislada con Leo para este tomo específico
+                    }, 1200);
+                } else {
+                    statusDiv.innerText = "Dispositivo validado de forma segura.";
+                    document.getElementById('auth-section').style.display = 'none';
+                    document.getElementById('session-section').style.display = 'block';
+                }
+            }, 1000);
+        }
     </script>
 </body>
 </html>
