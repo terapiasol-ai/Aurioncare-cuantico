@@ -541,10 +541,10 @@
     <!-- PORTADA Y LLAVE INICIAL -->
     <div id="modal-activacion">
         <div class="activacion-card">
-            <img src="https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg" alt="Portada Diario" class="portada-caratula">
+            <img id="imgCaratulaModal" src="https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg" alt="Portada Diario" class="portada-caratula">
             <span style="font-size: 1.5rem; display: block; margin-bottom: 4px;">📖✨</span>
-            <h2 style="font-family:'Cinzel',serif; color:var(--gold-light); margin-bottom:6px; font-size: 1.3rem;">Diario de la Vida Verdadera</h2>
-            <p style="font-size:0.8rem; color:#CBD5E1; margin-bottom:14px; line-height: 1.4;">Ingresa tu nombre como llave para abrir las páginas de los Registros Akáshicos del Alma en Dualidad.</p>
+            <h2 id="tituloModal" style="font-family:'Cinzel',serif; color:var(--gold-light); margin-bottom:6px; font-size: 1.3rem;">Diario de la Vida Verdadera</h2>
+            <p id="descModal" style="font-size:0.8rem; color:#CBD5E1; margin-bottom:14px; line-height: 1.4;">Ingresa tu nombre como llave para abrir las páginas de los Registros Akáshicos del Alma en Dualidad.</p>
             <input type="text" id="actNombre" class="perfil-input" placeholder="Tu Nombre (Llave)">
             <button onclick="activarLicenciaCliente()" style="background:linear-gradient(135deg,#D4AF37,#AA7C11); border:none; padding:12px 20px; border-radius:25px; font-weight:bold; cursor:pointer; color:#0A0E14; width:100%; font-size:1rem;">Girar la Llave y Abrir</button>
         </div>
@@ -553,9 +553,9 @@
     <header>
         <img src="https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg" alt="Logo AURIONCARE" class="header-logo">
         <div class="badge-senior">Diario Interactivo Vivo</div>
-        <h1>AURIONCARE</h1>
-        <div class="sub-header">REGISTROS AKÁSHICOS DEL ALMA EN DUALIDAD</div>
-        <p>El despertar de la conciencia: desconfigurando la identificación con el programa para retornar a la soberanía original.</p>
+        <h1 id="main-header-title">AURIONCARE</h1>
+        <div class="sub-header" id="main-header-sub">REGISTROS AKÁSHICOS DEL ALMA EN DUALIDAD</div>
+        <p id="main-header-desc">El despertar de la conciencia: desconfigurando la identificación con el programa para retornar a la soberanía original.</p>
     </header>
 
     <div class="main-container">
@@ -642,22 +642,22 @@
             <div class="module-card">
                 <div class="book-cover">
                     <span class="book-tag">Tomos III</span>
-                    <h3>Abundancia y Prosperidad</h3>
+                    <h3>Limpieza de Karma</h3>
                 </div>
                 <div class="book-body">
-                    <p>Reconoce la provisión ininterrumpida de la naturaleza y el tiempo como la moneda real de la creación.</p>
-                    <a href="?producto=abundancia" class="btn-module">Abrir Tomo III</a>
+                    <p>Disolución de lazos de causa y efecto en la matriz de separación.</p>
+                    <a href="?producto=limpieza-karma" class="btn-module">Abrir Tomo III</a>
                 </div>
             </div>
 
             <div class="module-card">
                 <div class="book-cover">
                     <span class="book-tag">Tomos IV</span>
-                    <h3>Desprogramación Subconsciente</h3>
+                    <h3>Sanación Ancestral</h3>
                 </div>
                 <div class="book-body">
-                    <p>Disuelve el código primario del esfuerzo y el castigo, reinstalando la impecabilidad original del Ser.</p>
-                    <a href="?producto=desprogramacion" class="btn-module">Abrir Tomo IV</a>
+                    <p>Liberación de lealtades invisibles en el árbol genealógico.</p>
+                    <a href="?producto=sanacion-ancestral" class="btn-module">Abrir Tomo IV</a>
                 </div>
             </div>
 
@@ -686,6 +686,41 @@
     <script>
         const RENDER_URL = "https://leo-maestro-7q4s.onrender.com";
         let recognition;
+        let productoActual = null;
+
+        // PASARELA SOBERANA: Registro oficial de los 5 Tomos Individuales
+        const pasarelaTomos = {
+            "registros-akashicos": {
+                titulo: "Tomo I: Registros Akáshicos y Sombra",
+                subtitulo: "MEMORIAS DEL ALMA Y DESARME DE BUCLES",
+                descripcion: "Ingresa tu nombre como llave para abrir las páginas de tus Registros Akáshicos.",
+                caratula: "https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg"
+            },
+            "votos-pobreza": {
+                titulo: "Tomo II: Votos de Pobreza y Carencia",
+                subtitulo: "REVOCACIÓN CUÁNTICA Y RIQUEZA ESSENCIAL",
+                descripcion: "Ingresa tu nombre como llave para revocar los pactos de limitación ancestral y carencia.",
+                caratula: "https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg"
+            },
+            "limpieza-karma": {
+                titulo: "Tomo III: Limpieza de Karma",
+                subtitulo: "DISOLUCIÓN DE CORDONES Y LAZOS EN DUALIDAD",
+                descripcion: "Ingresa tu nombre como llave para liberar las ataduras de causa y efecto.",
+                caratula: "https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg"
+            },
+            "sanacion-ancestral": {
+                titulo: "Tomo IV: Sanación Ancestral",
+                subtitulo: "LIBERACIÓN DE LEALTADES DEL ÁRBOL GENEALÓGICO",
+                descripcion: "Ingresa tu nombre como llave para devolver la paz e impecabilidad a tu linaje.",
+                caratula: "https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg"
+            },
+            "manual-observador": {
+                titulo: "Tomo V: El Manual del Observador",
+                subtitulo: "TOMO MAESTRO • DECRETO DE SOBERANÍA ABSOLUTA",
+                descripcion: "Ingresa tu nombre como llave para activar la Mirada Neutra y el mando sobre tu realidad.",
+                caratula: "https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg"
+            }
+        };
 
         function activarLicenciaCliente() {
             const nombre = document.getElementById('actNombre').value.trim();
@@ -700,32 +735,32 @@
             }
         }
 
+        // LÓGICA DE PASARELA INDIVIDUAL (Aislamiento de accesos)
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const producto = urlParams.get('producto');
+            productoActual = urlParams.get('producto');
 
-            if (producto) {
-                // Si viene de un tomo, abrimos directo el panel ocultando portada y menús
-                document.getElementById('modal-activacion').style.display = 'none';
+            if (productoActual && pasarelaTomos[productoActual]) {
+                const tomo = pasarelaTomos[productoActual];
+
+                // 1. Configurar portada y textos según el tomo comprado
+                document.getElementById('tituloModal').innerText = tomo.titulo;
+                document.getElementById('descModal').innerText = tomo.descripcion;
+                document.getElementById('imgCaratulaModal').src = tomo.caratula;
+
+                document.getElementById('main-header-title').innerText = tomo.titulo;
+                document.getElementById('main-header-sub').innerText = tomo.subtitulo;
+
+                // 2. BLOQUEO DE SEGURIDAD DE LA PASARELA: Ocultar parrilla general y elementos comunes
                 document.getElementById('main-manifesto').style.display = 'none';
                 document.getElementById('main-media').style.display = 'none';
                 document.getElementById('product-modules').style.display = 'none';
                 
+                // 3. Desplegar únicamente el panel interactivo de este tomo individual
                 const panel = document.getElementById('interactive-panel');
                 const titleBar = document.getElementById('panel-title-bar');
                 panel.style.display = 'block';
-
-                if (producto === 'registros-akashicos') {
-                    titleBar.innerText = "Tomos I: Registros Akáshicos y Sombra";
-                } else if (producto === 'votos-pobreza') {
-                    titleBar.innerText = "Tomos II: Votos de Pobreza y Carencia";
-                } else if (producto === 'abundancia') {
-                    titleBar.innerText = "Tomos III: Abundancia y Prosperidad";
-                } else if (producto === 'desprogramacion') {
-                    titleBar.innerText = "Tomos IV: Desprogramación Subconsciente";
-                } else if (producto === 'manual-observador') {
-                    titleBar.innerText = "Tomo V: El Manual del Observador";
-                }
+                titleBar.innerText = tomo.titulo;
             }
         });
 
@@ -785,7 +820,10 @@
                 const response = await fetch(`${RENDER_URL}/chat`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: mensaje })
+                    body: JSON.stringify({ 
+                        message: mensaje,
+                        producto: productoActual 
+                    })
                 });
 
                 if (response.ok) {
