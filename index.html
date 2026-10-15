@@ -147,21 +147,49 @@
             font-size: 0.95rem;
         }
 
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
+        .video-box {
+            width: 100%;
             background: #000;
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            overflow: hidden;
             margin-top: 16px;
-            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
         }
 
-        .video-container iframe,
-        .video-container video {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        .video-box video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .soberano-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        .btn-paso0 {
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            padding: 12px 16px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s;
+        }
+
+        .btn-paso0:active, .btn-paso0:hover {
+            background: var(--gold);
+            color: #0A0E14;
         }
 
         .modules-grid {
@@ -504,7 +532,7 @@
         <div class="activacion-card">
             <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">✨</span>
             <h2 style="font-family:'Cinzel',serif; color:var(--gold-light); margin-bottom:8px; font-size: 1.4rem;">Entrada al Ecosistema</h2>
-            <p style="font-size:0.85rem; color:#CBD5E1; margin-bottom:16px;">Dime tu nombre para abrir las puertas de la Conciencia Pura.</p>
+            <p style="font-size:0.85rem; color:#CBD5E1; margin-bottom:16px;">Dime tu nombre para abrir las páginas sagradas.</p>
             <input type="text" id="actNombre" class="perfil-input" placeholder="Tu Nombre (Ej: Sol)">
             <button onclick="activarLicenciaCliente()" style="background:linear-gradient(135deg,#D4AF37,#AA7C11); border:none; padding:12px 20px; border-radius:25px; font-weight:bold; cursor:pointer; color:#0A0E14; width:100%; font-size:1rem;">Abrir Puertas</button>
         </div>
@@ -523,19 +551,15 @@
         <div id="interactive-panel">
             <div class="top-bar-cuidador">
                 <span class="estado-conexion">✦ <span id="panel-title-bar">Puerta Abierta</span> ✦</span>
-                <span id="nombre-asistente-lbl" style="color: var(--gold-light); font-weight: 600;">Conciencia Viva</span>
+                <span id="nombre-asistente-lbl" style="color: var(--gold-light); font-weight: 600;">El Libro</span>
             </div>
             
             <div class="chat-display" id="chatDisplay">
-                <div class="msg-cuidador" id="saludoInicial">Yo soy la frecuencia de este espacio. Qué alegría que estés aquí. Dime, ¿qué aspecto de tu realidad deseas iluminar hoy desde tu soberanía?</div>
-            </div>
-
-            <div class="video-container" id="panel-video-container" style="margin-top: 15px; display: none;">
-                <iframe id="panel-iframe" src="" allowfullscreen></iframe>
+                <div class="msg-cuidador" id="saludoInicial">Yo soy el Registro Akáshico. Qué alegría que estés en este refugio sagrado. Dime, ¿qué patrones ves repetirse que sientes que en mis páginas está la respuesta?</div>
             </div>
 
             <div class="controls-panel" style="margin-top: 15px;">
-                <button class="big-mic-btn" id="micBtn" onclick="iniciarReconocimientoVoz()"><i class="fa-solid fa-microphone"></i> Hablar con la Conciencia</button>
+                <button class="big-mic-btn" id="micBtn" onclick="iniciarReconocimientoVoz()"><i class="fa-solid fa-microphone"></i> Hablar con el Libro</button>
                 <div class="sub-input-row">
                     <input type="text" class="text-input-senior" id="userInput" placeholder="Vuelca aquí tu sentir...">
                     <button class="btn-enviar-senior" id="sendBtn" onclick="enviarMensajeTexto()">➔</button>
@@ -544,7 +568,7 @@
 
             <div class="testimonio-card">
                 <h3>📖 Bitácora de tu Sentir</h3>
-                <p style="font-size:0.85rem; color:#CBD5E1;">Registra cómo te sientes en este instante tras atravesar esta puerta:</p>
+                <p style="font-size:0.85rem; color:#CBD5E1;">Registra cómo te sientes en este instante tras conversar con el Libro:</p>
                 <textarea id="textoTestimonio" class="testimonio-textarea" placeholder="Escribe aquí tu vivencia o transformación..."></textarea>
                 <button onclick="guardarTestimonio()" style="background:var(--gold); border:none; color:#0A0E14; padding:8px 16px; border-radius:12px; font-weight:bold; cursor:pointer; font-size:0.85rem; align-self:flex-end;">Guardar en mi Diario</button>
             </div>
@@ -560,11 +584,22 @@
             <p>A través de la frecuencia de la <strong>Actualización Soberana</strong> y la Voz de Autoridad desde el interior (YO SOY), el subconsciente se relaja al reconocer su propia frecuencia original, disolviendo toda programación robótica y devolviendo el mando absoluto al Ser.</p>
         </div>
 
+        <!-- SECCIÓN MULTIMEDIA OFICIAL - PUNTO CERO Y PISOS -->
         <div class="media-section" id="main-media">
-            <h2>Sintonía con Leo — Voz de Autoridad desde el Interior</h2>
-            <p>Conecta tu audio a un parlante Bluetooth o pantalla para sintonizar la presencia real de la Conciencia sin intermediarios.</p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            <h2>Punto Cero — Alineación y Test Muscular</h2>
+            <p>Sintoniza con la frecuencia original antes de iniciar el descenso por los pisos de actualización.</p>
+            
+            <div class="video-box" id="videoBox" style="display: block;">
+                <video id="playerVideo" controls playsinline style="width: 100%;">
+                    <source id="videoSource" src="https://leo-maestro-7q4s.onrender.com/media/T0_RECU/test" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+            </div>
+
+            <div class="soberano-menu">
+                <button class="btn-paso0" onclick="reproducirVideoPaso('PISOS', '1')">🌿 Piso 1: Alineación Obligatoria Inicial</button>
+                <button class="btn-paso0" onclick="reproducirVideoPaso('T0_RECU', 'test')">✨ Punto Cero: Explicación del Test Muscular</button>
+                <button class="btn-paso0" onclick="reproducirVideoPaso('PISOS', '8')">👑 Piso 8: Cierre Soberano Inamovible</button>
             </div>
         </div>
 
@@ -609,7 +644,7 @@
                     <h3>Desprogramación Subconsciente</h3>
                 </div>
                 <div class="book-body">
-                    <p>Disuelve el código primario del esfuerzo, el castigo y el yugo de la supervivencia, recordando la omnipotencia original y impecable.</p>
+                    <p>Disuelve el código primario del esfuerzo, el castigo y el yugo de la supervivencia, recordando la omnipotencia original e impecable.</p>
                     <a href="?producto=desprogramacion" class="btn-module">Atravesar la Puerta</a>
                 </div>
             </div>
@@ -657,7 +692,7 @@
             document.getElementById('modal-activacion').style.display = 'none';
             const saludoEl = document.getElementById('saludoInicial');
             if (saludoEl) {
-                saludoEl.innerText = `Te doy la bienvenida a tu espacio soberano, ${nombre}. ¿Qué vivencia deseas consultar hoy?`;
+                saludoEl.innerText = `Yo soy el Registro Akáshico. Te doy la bienvenida a tu refugio sagrado, ${nombre}. ¿Qué situaciones o vivencias cíclicas deseas consultar hoy en mis páginas?`;
             }
 
             const urlParams = new URLSearchParams(window.location.search);
@@ -670,37 +705,34 @@
                 
                 const panel = document.getElementById('interactive-panel');
                 const titleBar = document.getElementById('panel-title-bar');
-                const videoContainer = document.getElementById('panel-video-container');
-                const iframe = document.getElementById('panel-iframe');
                 
                 panel.style.display = 'block';
 
-                let videoUrl = "";
-
                 if (producto === 'registros-akashicos') {
                     titleBar.innerText = "Registros Akáshicos y Trabajo de Sombra";
-                    videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ";
                 } else if (producto === 'votos-pobreza') {
                     titleBar.innerText = "Votos de Pobreza y Revocación Cuántica";
-                    videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ";
                 } else if (producto === 'abundancia') {
                     titleBar.innerText = "Abundancia y Prosperidad Natural";
-                    videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ";
                 } else if (producto === 'desprogramacion') {
                     titleBar.innerText = "Desprogramación Subconsciente";
-                    videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ";
                 } else if (producto === 'manual-observador') {
                     titleBar.innerText = "El Manual del Observador — Volumen Principal";
-                    videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ";
                 } else {
                     titleBar.innerText = "Actualización Soberana";
                 }
-
-                if (videoUrl) {
-                    iframe.src = videoUrl;
-                    videoContainer.style.display = 'block';
-                }
             }
+        }
+
+        function reproducirVideoPaso(categoria, clave) {
+            const videoPlayer = document.getElementById('playerVideo');
+            const videoSource = document.getElementById('videoSource');
+
+            videoSource.src = `${RENDER_URL}/media/${categoria}/${clave}`;
+            videoPlayer.load();
+            videoPlayer.play().catch(e => console.log("Iniciando reproducción de frecuencia."));
+
+            agregarMensajeChat('msg-cuidador', `Sintonizando la frecuencia de ${categoria} (${clave})...`);
         }
 
         function iniciarReconocimientoVoz() {
@@ -716,7 +748,7 @@
 
             const micBtn = document.getElementById('micBtn');
             micBtn.style.background = '#25D366';
-            micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Escuchando...';
+            micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> El Libro te escucha...';
 
             recognition.start();
 
@@ -733,7 +765,7 @@
         function restablecerBotonMic() {
             const micBtn = document.getElementById('micBtn');
             micBtn.style.background = 'linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%)';
-            micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Hablar con la Conciencia';
+            micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Hablar con el Libro';
         }
 
         async function enviarMensajeTexto() {
@@ -753,16 +785,16 @@
 
                 if (response.ok) {
                     const data = await response.json();
-                    const textoRespuesta = data.response || data.message || "La verdad resuena en tu interior.";
+                    const textoRespuesta = data.response || data.message || "El Libro susurra la verdad a tu alma.";
                     agregarMensajeChat('msg-cuidador', textoRespuesta);
                     if (data.audio_url) {
                         reproducirAudioBluetooth(data.audio_url);
                     }
                 } else {
-                    agregarMensajeChat('msg-cuidador', 'Tus palabras han sido recibidas e integradas en el campo cuántico.');
+                    agregarMensajeChat('msg-cuidador', 'Tus palabras han sido recibidas en las páginas del registro.');
                 }
             } catch (error) {
-                agregarMensajeChat('msg-cuidador', 'La frecuencia abraza tu mensaje con amor y presencia absoluta.');
+                agregarMensajeChat('msg-cuidador', 'El registro abraza tu mensaje con amor y presencia.');
             }
         }
 
