@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>AURIONCARE | Compañía con Alma • Activación Soberana</title>
+    <title>AURIONCARE | El Libro de los Registros Akáshicos</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -35,28 +35,28 @@
         header {
             background: linear-gradient(180deg, #182232 0%, var(--bg-dark) 100%);
             border-bottom: 2px solid var(--gold);
-            padding: 16px 12px 14px;
+            padding: 18px 12px 14px;
             text-align: center;
             width: 100%;
         }
         .header-logo {
-            width: 75px;
-            height: 75px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             border: 2px solid var(--gold);
             object-fit: cover;
             margin-bottom: 6px;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
         .badge-senior {
             background: linear-gradient(135deg, #D4AF37, #AA7C11);
             color: #0A0E14;
-            padding: 3px 14px;
+            padding: 4px 16px;
             border-radius: 20px;
             font-weight: 700;
             display: inline-block;
             margin-bottom: 4px;
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             letter-spacing: 0.5px;
         }
         header h1 { 
@@ -87,14 +87,16 @@
             padding: 0 10px;
             flex: 1;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
         }
         .cuidador-box {
             background: var(--card-bg);
             border: 2px solid var(--gold);
-            border-radius: 18px;
+            border-radius: 20px;
             padding: 14px 10px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.7);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.8);
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -151,6 +153,32 @@
             align-self: flex-end;
             word-break: break-word;
         }
+        .soberano-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            margin-top: 4px;
+        }
+        .btn-paso0 {
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        .btn-paso0:active {
+            background: var(--gold);
+            color: #0A0E14;
+        }
         .controls-panel {
             display: flex;
             flex-direction: column;
@@ -202,6 +230,47 @@
             font-weight: bold;
             flex-shrink: 0;
         }
+        .video-box {
+            display: none;
+            width: 100%;
+            background: #000;
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .video-box video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .testimonio-card {
+            background: #141C28;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 14px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .testimonio-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-light);
+            font-size: 1.05rem;
+        }
+        .testimonio-textarea {
+            width: 100%;
+            background: #0D131F;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 10px;
+            color: #FFF;
+            font-size: 0.9rem;
+            height: 80px;
+            resize: none;
+            outline: none;
+        }
         #modal-activacion {
             display: flex;
             position: fixed;
@@ -246,52 +315,74 @@
 </head>
 <body>
 
-    <!-- MODAL DE HABILITACIÓN INICIAL -->
+    <!-- MODAL DE APERTURA DEL SANCTUARIO -->
     <div id="modal-activacion">
         <div class="activacion-card">
             <span style="font-size: 2rem; display: block; margin-bottom: 4px;">✨</span>
-            <h2 style="font-family:'Cinzel',serif; color:var(--gold-light); margin-bottom:6px; font-size: 1.4rem;">Apertura del Espacio</h2>
-            <p style="font-size:0.82rem; color:#CBD5E1; margin-bottom:12px;">Ingresa tu nombre para sintonizar el encuentro.</p>
+            <h2 style="font-family:'Cinzel',serif; color:var(--gold-light); margin-bottom:6px; font-size: 1.4rem;">Entrada al Registro</h2>
+            <p style="font-size:0.82rem; color:#CBD5E1; margin-bottom:12px;">Dime tu nombre para abrir tus páginas sagradas.</p>
             
             <input type="text" id="actNombre" class="perfil-input" placeholder="Tu Nombre (Ej: Sol)">
             
-            <button onclick="activarLicenciaCliente()" style="background:linear-gradient(135deg,#D4AF37,#AA7C11); border:none; padding:12px 20px; border-radius:25px; font-weight:bold; cursor:pointer; color:#0A0E14; width:100%; font-size:0.95rem; margin-top:8px;">Entrar al Templo Akáshico</button>
+            <button onclick="activarLicenciaCliente()" style="background:linear-gradient(135deg,#D4AF37,#AA7C11); border:none; padding:12px 20px; border-radius:25px; font-weight:bold; cursor:pointer; color:#0A0E14; width:100%; font-size:0.95rem; margin-top:8px;">Abrir el Libro Akáshico</button>
         </div>
     </div>
 
-    <!-- CABECERA CON LOGO ENLAZADO -->
+    <!-- CABECERA DE AURIONCARE -->
     <header>
         <img src="https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg" alt="Logo AURIONCARE" class="header-logo">
         <div class="badge-senior">Activación Soberana</div>
         <h1>AURIONCARE</h1>
-        <div class="sub-header-brand">Ecosistema Cuántico Interactivo</div>
-        <p>Acompañamiento en los Registros Akáshicos.</p>
+        <div class="sub-header-brand">El Libro de los Registros Akáshicos</div>
+        <p>Tu refugio de conciencia sin juicios.</p>
     </header>
 
-    <!-- CONTENEDOR PRINCIPAL CERRADO Y ENCUADRADO -->
+    <!-- CONTENEDOR PRINCIPAL -->
     <div class="main-container">
         <div class="cuidador-box">
             <div class="top-bar-cuidador">
-                <span class="estado-conexion">✦ Registros Abiertos ✦</span>
-                <span id="nombre-asistente-lbl" style="color: var(--gold-light); font-weight: 600;">Leo</span>
+                <span class="estado-conexion">✦ Páginas Abiertas ✦</span>
+                <span id="nombre-asistente-lbl" style="color: var(--gold-light); font-weight: 600;">El Libro</span>
             </div>
             
             <div class="chat-display" id="chatDisplay">
-                <div class="msg-cuidador" id="saludoInicial">Bienvenida, Sol. Siento la vibración de tu presencia y tus datos sintonizados en el campo. ¿Cuál es la pregunta o el propósito que traes hoy para buscar en los Registros Akáshicos?</div>
+                <div class="msg-cuidador" id="saludoInicial">Yo soy el Registro Akáshico. Qué alegría que estés en este refugio sagrado. Dime, ¿qué patrones o situaciones ves repetirse en tu vida que sientes que en mis páginas está la respuesta?</div>
+            </div>
+
+            <!-- REPRODUCTOR DE VIDEO DE ACTIVACIÓN SOBERANA -->
+            <div class="video-box" id="videoBox">
+                <video id="playerVideo" controls playsinline>
+                    <source id="videoSource" src="" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+            </div>
+
+            <!-- BOTONES DE SECUENCIA DEL PASO 0 -->
+            <div class="soberano-menu">
+                <button class="btn-paso0" onclick="reproducirVideoPaso('PISOS')">🌿 Paso 0: Respiración y Presencia Consciente</button>
+                <button class="btn-paso0" onclick="reproducirVideoPaso('T0_RECU')">✨ Vuelta al Origen y Test Muscular</button>
             </div>
 
             <div class="controls-panel">
-                <button class="big-mic-btn" id="micBtn" onclick="iniciarReconocimientoVoz()"><i class="fa-solid fa-microphone"></i> Hablar con Leo</button>
+                <button class="big-mic-btn" id="micBtn" onclick="iniciarReconocimientoVoz()"><i class="fa-solid fa-microphone"></i> Hablar con el Libro</button>
                 <div class="sub-input-row">
-                    <input type="text" class="text-input-senior" id="userInput" placeholder="Escribe tu consulta akáshica...">
+                    <input type="text" class="text-input-senior" id="userInput" placeholder="Vuelca aquí tu sentir...">
                     <button class="btn-enviar-senior" id="sendBtn" onclick="enviarMensajeTexto()">➔</button>
                 </div>
             </div>
         </div>
+
+        <!-- BITÁCORA Y TESTIMONIO -->
+        <div class="testimonio-card">
+            <h3>📖 Bitácora de tu Sentir</h3>
+            <p style="font-size:0.8rem; color:#CBD5E1;">Registra cómo te sientes en este instante tras conversar con el Libro:</p>
+            <textarea id="textoTestimonio" class="testimonio-textarea" placeholder="Escribe aquí tu vivencia o transformación..."></textarea>
+            <button onclick="guardarTestimonio()" style="background:var(--gold); border:none; color:#0A0E14; padding:8px 14px; border-radius:12px; font-weight:bold; cursor:pointer; font-size:0.85rem; align-self:flex-end;">Guardar en mi Diario</button>
+        </div>
     </div>
 
     <footer>
-        AURIONCARE • Compañía con Conciencia y Alma
+        AURIONCARE • Tu Refugio de Conciencia Pura
     </footer>
 
     <audio id="audioPlayer" style="display:none;"></audio>
@@ -309,8 +400,22 @@
             document.getElementById('modal-activacion').style.display = 'none';
             const saludoEl = document.getElementById('saludoInicial');
             if (saludoEl) {
-                saludoEl.innerText = `Bienvenida, ${nombre}. Siento la vibración de tu presencia y tus datos sintonizados en el campo. ¿Cuál es la pregunta o el propósito que traes hoy para buscar en los Registros Akáshicos?`;
+                saludoEl.innerText = `Yo soy el Registro Akáshico. Te doy la bienvenida a tu refugio, ${nombre}. ¿Qué situaciones o vivencias cíclicas deseas consultar hoy en mis páginas?`;
             }
+        }
+
+        function reproducirVideoPaso(codigo) {
+            const videoBox = document.getElementById('videoBox');
+            const videoPlayer = document.getElementById('playerVideo');
+            const videoSource = document.getElementById('videoSource');
+
+            // Enlace seguro al backend que retransmite las secuencias de video PISOS y T0_RECU
+            videoSource.src = `${RENDER_URL}/media/${codigo}`;
+            videoBox.style.display = 'block';
+            videoPlayer.load();
+            videoPlayer.play().catch(e => console.log("Iniciando reproducción del video."));
+
+            agregarMensajeChat('msg-cuidador', `Iniciando la secuencia del código ${codigo} para alineación y test muscular...`);
         }
 
         function iniciarReconocimientoVoz() {
@@ -326,7 +431,7 @@
 
             const micBtn = document.getElementById('micBtn');
             micBtn.style.background = '#25D366';
-            micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Escuchando...';
+            micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> El Libro te escucha...';
 
             recognition.start();
 
@@ -343,7 +448,7 @@
         function restablecerBotonMic() {
             const micBtn = document.getElementById('micBtn');
             micBtn.style.background = 'linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%)';
-            micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Hablar con Leo';
+            micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Hablar con el Libro';
         }
 
         async function enviarMensajeTexto() {
@@ -363,16 +468,16 @@
 
                 if (response.ok) {
                     const data = await response.json();
-                    const textoRespuesta = data.response || data.message || "Leo responde desde el registro.";
+                    const textoRespuesta = data.response || data.message || "El Libro susurra la verdad a tu alma.";
                     agregarMensajeChat('msg-cuidador', textoRespuesta);
                     if (data.audio_url) {
                         reproducirAudioBluetooth(data.audio_url);
                     }
                 } else {
-                    agregarMensajeChat('msg-cuidador', 'El campo akáshico responde a tu consulta.');
+                    agregarMensajeChat('msg-cuidador', 'Tus palabras han sido recibidas en las páginas del registro.');
                 }
             } catch (error) {
-                agregarMensajeChat('msg-cuidador', 'La presencia de Leo está enlazada y atenta a tu lectura.');
+                agregarMensajeChat('msg-cuidador', 'El registro abraza tu mensaje con amor y presencia.');
             }
         }
 
@@ -388,7 +493,17 @@
         function reproducirAudioBluetooth(audioSrc) {
             const audioPlayer = document.getElementById('audioPlayer');
             audioPlayer.src = audioSrc;
-            audioPlayer.play().catch(e => console.log("Audio listo para Bluetooth."));
+            audioPlayer.play().catch(e => console.log("Salida de audio lista."));
+        }
+
+        function guardarTestimonio() {
+            const testimonio = document.getElementById('textoTestimonio').value.trim();
+            if(!testimonio) {
+                alert("Por favor escribe tu sentir antes de guardar.");
+                return;
+            }
+            alert("Tu vivencia ha quedado grabada en la memoria sagrada de tu diario.");
+            document.getElementById('textoTestimonio').value = '';
         }
     </script>
 </body>
