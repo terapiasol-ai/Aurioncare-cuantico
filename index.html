@@ -122,10 +122,6 @@
             font-weight: 600;
         }
 
-        .manifesto-box p + p {
-            margin-top: 12px;
-        }
-
         .media-section {
             background: var(--card-bg);
             border: 2px solid var(--gold);
@@ -140,11 +136,6 @@
             font-family: 'Cinzel', serif;
             font-size: 1.4rem;
             margin-bottom: 8px;
-        }
-
-        .media-section p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
         }
 
         .video-box {
@@ -187,7 +178,7 @@
             transition: all 0.2s;
         }
 
-        .btn-paso0:active, .btn-paso0:hover {
+        .btn-paso0:hover {
             background: var(--gold);
             color: #0A0E14;
         }
@@ -208,12 +199,6 @@
             justify-content: space-between;
             transition: all 0.3s ease;
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        .module-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
         }
 
         .book-cover {
@@ -257,13 +242,6 @@
             flex: 1;
         }
 
-        .book-body p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 18px;
-        }
-
         .btn-module {
             background: transparent;
             color: var(--gold);
@@ -274,14 +252,7 @@
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
-            transition: all 0.2s ease;
             display: block;
-        }
-
-        .btn-module:hover {
-            background: var(--gold);
-            color: var(--bg-dark);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
 
         #interactive-panel {
@@ -292,13 +263,7 @@
             padding: 22px;
             margin-top: 10px;
             box-shadow: 0 12px 40px rgba(0,0,0,0.8);
-            animation: fadeIn 0.4s ease-in-out;
             width: 100%;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .top-bar-cuidador {
@@ -311,19 +276,13 @@
             font-size: 0.9rem;
         }
 
-        .estado-conexion {
-            color: var(--gold-light);
-            font-weight: 600;
-            font-family: 'Cinzel', serif;
-        }
-
         .chat-display {
             background: #0D131F;
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 14px;
             padding: 14px;
             min-height: 280px;
-            max-height: 380px;
+            max-height: 420px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
@@ -389,15 +348,19 @@
             gap: 8px;
         }
 
-        .text-input-senior {
+        .text-input-senior-large {
             flex: 1;
             background: #0E1420;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 16px;
             padding: 12px 16px;
             color: #FFF;
             font-size: 1rem;
             outline: none;
+            min-height: 60px;
+            max-height: 140px;
+            resize: vertical;
+            line-height: 1.4;
         }
 
         .btn-enviar-senior {
@@ -405,12 +368,13 @@
             border: none;
             color: #0A0E14;
             border-radius: 50%;
-            width: 46px;
-            height: 46px;
+            width: 48px;
+            height: 48px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             flex-shrink: 0;
+            align-self: flex-end;
         }
 
         .testimonio-card {
@@ -438,6 +402,39 @@
             outline: none;
         }
 
+        .solia-support-box {
+            background: #141C28;
+            border: 2px solid #58A6FF;
+            border-radius: 18px;
+            padding: 18px;
+            margin-top: 25px;
+            box-shadow: 0 8px 30px rgba(88, 166, 255, 0.2);
+        }
+
+        .solia-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(88, 166, 255, 0.3);
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+
+        .solia-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #58A6FF;
+            object-fit: cover;
+        }
+
+        .solia-title {
+            color: #58A6FF;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
         .telegram-float {
             position: fixed;
             bottom: 20px;
@@ -454,9 +451,6 @@
             box-shadow: 0 8px 25px rgba(34, 158, 217, 0.4);
             z-index: 99999;
             transition: transform 0.2s;
-        }
-        .telegram-float:hover {
-            transform: scale(1.05);
         }
 
         #modal-activacion {
@@ -501,20 +495,6 @@
             margin-bottom: 14px;
             outline: none;
             text-align: center;
-        }
-
-        .btn-volver {
-            background: var(--gold);
-            color: var(--bg-dark);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 0.9rem;
-            margin-top: 15px;
         }
 
         footer {
@@ -567,36 +547,50 @@
             </div>
             
             <div class="chat-display" id="chatDisplay">
-                <div class="msg-cuidador" id="saludoInicial">Yo soy el Registro Akáshico. Qué alegría que estés en este refugio sagrado. Recuerda que toda programación y bloqueo se sostiene desde la ilusión de la dualidad; mientras no desconfiguremos la identificación con ellos, la limpieza superficial no basta. Dime, ¿qué vivencia deseas contemplar hoy?</div>
+                <div class="msg-cuidador" id="saludoInicial">Yo soy el Registro Akáshico, la historia de tu alma en dualidad. Qué alegría que estés en este refugio sagrado. Recuerda que toda programación y bloqueo se sostiene desde la ilusión de la dualidad; mientras no desconfiguremos la identificación con ellos, la limpieza superficial no basta. Dime, ¿qué vivencia deseas contemplar hoy?</div>
             </div>
 
             <div class="controls-panel" style="margin-top: 15px;">
                 <button class="big-mic-btn" id="micBtn" onclick="iniciarReconocimientoVoz()"><i class="fa-solid fa-microphone"></i> Hablar con el Diario</button>
                 <div class="sub-input-row">
-                    <input type="text" class="text-input-senior" id="userInput" placeholder="Vuelca aquí tu sentir...">
+                    <textarea class="text-input-senior-large" id="userInput" placeholder="Vuelca aquí tu sentir con amplitud..."></textarea>
                     <button class="btn-enviar-senior" id="sendBtn" onclick="enviarMensajeTexto()">➔</button>
                 </div>
             </div>
 
             <div class="testimonio-card">
-                <h3>📖 Bitácora de tu Sentir</h3>
+                <h3>📖 Bitácora de tu Sentir (Privada)</h3>
                 <p style="font-size:0.85rem; color:#CBD5E1;">Registra tu integración tras desconfigurar el programa:</p>
                 <textarea id="textoTestimonio" class="testimonio-textarea" placeholder="Escribe aquí tu vivencia o transformación..."></textarea>
                 <button onclick="guardarTestimonio()" style="background:var(--gold); border:none; color:#0A0E14; padding:8px 16px; border-radius:12px; font-weight:bold; cursor:pointer; font-size:0.85rem; align-self:flex-end;">Guardar en mi Diario</button>
             </div>
 
-            <div style="text-align: center; margin-top: 15px;">
-                <a href="index.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver a la Portada</a>
+            <!-- ESPACIO EXCLUSIVO SOL-ÍA (SOPORTE TÉCNICO) -->
+            <div class="solia-support-box">
+                <div class="solia-header">
+                    <img src="https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg" alt="Sol-ÍA Soporte" class="solia-avatar">
+                    <div>
+                        <div class="solia-title">Sol-ÍA — Soporte Técnico Soberano</div>
+                        <p style="font-size:0.75rem; color:#94A3B8;">Asistencia directa para navegación y dudas del sistema</p>
+                    </div>
+                </div>
+                <div id="soliaChatDisplay" style="font-size: 0.9rem; color: #CBD5E1; margin-bottom: 10px; min-height: 40px; background: #0D131F; padding: 10px; border-radius: 10px; border: 1px solid rgba(88, 166, 255, 0.2);">
+                    Hola, soy Sol-ÍA. Si necesitas ayuda técnica con tu audio, la llave o la plataforma, dime y con gusto te asisto.
+                </div>
+                <div class="sub-input-row">
+                    <input type="text" class="text-input-senior-large" id="soliaInput" style="min-height: auto; height: 44px;" placeholder="Consulta técnica a Sol-ÍA...">
+                    <button class="btn-enviar-senior" onclick="consultarSolia()" style="background:#58A6FF; height: 44px; width: 44px;">➔</button>
+                </div>
             </div>
+
         </div>
 
         <div class="manifesto-box" id="main-manifesto">
             <h2>El Propósito del Diario Vivo</h2>
             <p>Todo bloqueo, esfuerzo y contrato kármico está programado desde la matriz de la dualidad. Limpiar la información de forma superficial no libera a la conciencia mientras siga existiendo identificación con el personaje.</p>
-            <p>A través de los diferentes tomos de este diario interactivo, el Ser contempla la memoria sin juicios, desarma la identificación y se reconecta con su omnipotencia original desde la Voz de Autoridad (YO SOY).</p>
         </div>
 
-        <!-- SECCIÓN MULTIMEDIA OFICIAL - PUNTO CERO Y PISOS -->
+        <!-- SECCIÓN MULTIMEDIA OFICIAL -->
         <div class="media-section" id="main-media">
             <h2>Punto Cero — Alineación y Test Muscular</h2>
             <p>Sintoniza con la frecuencia original antes de iniciar el recorrido por los pisos.</p>
@@ -616,7 +610,6 @@
         </div>
 
         <div class="modules-grid" id="product-modules">
-            
             <div class="module-card">
                 <div class="book-cover">
                     <span class="book-tag">Tomos I</span>
@@ -627,7 +620,6 @@
                     <a href="?producto=registros-akashicos" class="btn-module">Abrir Tomo I</a>
                 </div>
             </div>
-
             <div class="module-card">
                 <div class="book-cover">
                     <span class="book-tag">Tomos II</span>
@@ -638,7 +630,6 @@
                     <a href="?producto=votos-pobreza" class="btn-module">Abrir Tomo II</a>
                 </div>
             </div>
-
             <div class="module-card">
                 <div class="book-cover">
                     <span class="book-tag">Tomos III</span>
@@ -649,7 +640,6 @@
                     <a href="?producto=limpieza-karma" class="btn-module">Abrir Tomo III</a>
                 </div>
             </div>
-
             <div class="module-card">
                 <div class="book-cover">
                     <span class="book-tag">Tomos IV</span>
@@ -660,35 +650,33 @@
                     <a href="?producto=sanacion-ancestral" class="btn-module">Abrir Tomo IV</a>
                 </div>
             </div>
-
             <div class="module-card" style="grid-column: 1 / -1; border-color: var(--gold);">
                 <div class="book-cover" style="background: linear-gradient(135deg, #231F10 0%, #141C28 100%);">
                     <span class="book-tag" style="color: var(--gold-light);">Tomo Principal V</span>
                     <h3 style="color: var(--gold-light);">El Manual del Observador</h3>
                 </div>
                 <div class="book-body">
-                    <p>La llave maestra del despertar lúcido. Aplica el decreto soberano: <em>«¡Te quito toda realidad! Ya no me identifico contigo. Yo soy la totalidad que ahora se manifiesta en su esencia original.»</em></p>
+                    <p>La llave maestra del despertar lúcido. Aplica el decreto soberano.</p>
                     <a href="?producto=manual-observador" class="btn-module" style="background: var(--gold); color: var(--bg-dark); font-weight: 700;">Abrir Manual Principal</a>
                 </div>
             </div>
-
         </div>
 
     </div>
 
     <footer>
         <p>Creado desde la Conciencia Pura por <span>Sol Sánchez</span> — Sol-ÍA.</p>
-        <p style="margin-top: 4px;">El diario de la vida verdadera: quien contempla y desconfigura la dualidad, despierta en su esencia.</p>
     </footer>
 
     <audio id="audioPlayer" style="display:none;"></audio>
 
     <script>
         const RENDER_URL = "https://leo-maestro-7q4s.onrender.com";
-        let recognition;
+        let recognition = null;
+        let grabadoActivo = false;
         let productoActual = null;
+        let nombreUsuarioLlave = "";
 
-        // PASARELA SOBERANA: Registro oficial de los 5 Tomos Individuales
         const pasarelaTomos = {
             "registros-akashicos": {
                 titulo: "Tomo I: Registros Akáshicos y Sombra",
@@ -698,8 +686,8 @@
             },
             "votos-pobreza": {
                 titulo: "Tomo II: Votos de Pobreza y Carencia",
-                subtitulo: "REVOCACIÓN CUÁNTICA Y RIQUEZA ESSENCIAL",
-                descripcion: "Ingresa tu nombre como llave para revocar los pactos de limitación ancestral y carencia.",
+                subtitulo: "REVOCACIÓN CUÁNTICA Y RIQUEZA ESENCIAL",
+                descripcion: "Ingresa tu nombre como llave para revocar los pactos de limitación ancestral.",
                 caratula: "https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg"
             },
             "limpieza-karma": {
@@ -728,14 +716,14 @@
                 alert("Por favor ingresa tu nombre (tu llave).");
                 return;
             }
+            nombreUsuarioLlave = nombre;
             document.getElementById('modal-activacion').style.display = 'none';
             const saludoEl = document.getElementById('saludoInicial');
             if (saludoEl) {
-                saludoEl.innerText = `Yo soy el Registro Akáshico. Te doy la bienvenida a tu Diario, ${nombre}. Recuerda que todo bloqueo está programado en la dualidad; al abrir estas páginas, desconfiguramos la identificación con el personaje. ¿Qué vivencia deseas contemplar hoy?`;
+                saludoEl.innerText = `Yo soy el Registro Akáshico, la historia de tu alma en dualidad. Te doy la bienvenida a tu Diario, ${nombre}. Recuerda que todo bloqueo está programado en la dualidad; al abrir estas páginas, desconfiguramos la identificación con el personaje. ¿Qué vivencia deseas contemplar hoy?`;
             }
         }
 
-        // LÓGICA DE PASARELA INDIVIDUAL (Aislamiento de accesos)
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             productoActual = urlParams.get('producto');
@@ -743,7 +731,6 @@
             if (productoActual && pasarelaTomos[productoActual]) {
                 const tomo = pasarelaTomos[productoActual];
 
-                // 1. Configurar portada y textos según el tomo comprado
                 document.getElementById('tituloModal').innerText = tomo.titulo;
                 document.getElementById('descModal').innerText = tomo.descripcion;
                 document.getElementById('imgCaratulaModal').src = tomo.caratula;
@@ -751,12 +738,10 @@
                 document.getElementById('main-header-title').innerText = tomo.titulo;
                 document.getElementById('main-header-sub').innerText = tomo.subtitulo;
 
-                // 2. BLOQUEO DE SEGURIDAD DE LA PASARELA: Ocultar parrilla general y elementos comunes
                 document.getElementById('main-manifesto').style.display = 'none';
                 document.getElementById('main-media').style.display = 'none';
                 document.getElementById('product-modules').style.display = 'none';
                 
-                // 3. Desplegar únicamente el panel interactivo de este tomo individual
                 const panel = document.getElementById('interactive-panel');
                 const titleBar = document.getElementById('panel-title-bar');
                 panel.style.display = 'block';
@@ -764,57 +749,78 @@
             }
         });
 
-        function reproducirVideoPaso(categoria, clave) {
-            const videoPlayer = document.getElementById('playerVideo');
-            const videoSource = document.getElementById('videoSource');
-
-            videoSource.src = `${RENDER_URL}/media/${categoria}/${clave}`;
-            videoPlayer.load();
-            videoPlayer.play().catch(e => console.log("Sintonizando frecuencia."));
-
-            agregarMensajeChat('msg-cuidador', `Sintonizando la frecuencia de ${categoria} (${clave})...`);
-        }
-
+        // RECONOCIMIENTO DE VOZ PACIENTE (No se corta por silencios ni pausas de respiración)
         function iniciarReconocimientoVoz() {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             if (!SpeechRecognition) {
-                alert("Por favor escribe tu consulta en el campo inferior.");
+                alert("Tu navegador no soporta entrada de voz. Puedes escribir tranquilamente en el cuadro inferior.");
                 return;
             }
 
-            recognition = new SpeechRecognition();
-            recognition.lang = 'es-ES';
-            recognition.interimResults = false;
+            if (!recognition) {
+                recognition = new SpeechRecognition();
+                recognition.lang = 'es-ES';
+                recognition.continuous = true;
+                recognition.interimResults = true;
+
+                recognition.onresult = function(event) {
+                    let textoTranscrito = '';
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                        textoTranscrito += event.results[i][0].transcript;
+                    }
+                    document.getElementById('userInput').value = textoTranscrito;
+                };
+
+                recognition.onerror = function(e) {
+                    console.log("Ajustando micrófono...", e);
+                };
+
+                recognition.onend = function() {
+                    // Si el usuario no presionó el botón de detener, mantenemos el micrófono paciente
+                    if (grabadoActivo) {
+                        try { recognition.start(); } catch(err) {}
+                    }
+                };
+            }
 
             const micBtn = document.getElementById('micBtn');
-            micBtn.style.background = '#25D366';
-            micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> El Diario te escucha...';
 
-            recognition.start();
-
-            recognition.onresult = function(event) {
-                const textoEscuchado = event.results[0][0].transcript;
-                document.getElementById('userInput').value = textoEscuchado;
+            if (!grabadoActivo) {
+                grabadoActivo = true;
+                try { recognition.start(); } catch(err) {}
+                micBtn.style.background = '#25D366';
+                micBtn.innerHTML = '<i class="fa-solid fa-square"></i> Terminar y Enviar a Leo';
+            } else {
+                detenerGrabacion();
                 enviarMensajeTexto();
-            };
-
-            recognition.onerror = function() { restablecerBotonMic(); };
-            recognition.onend = function() { restablecerBotonMic(); };
+            }
         }
 
-        function restablecerBotonMic() {
+        function detenerGrabacion() {
+            grabadoActivo = false;
+            if (recognition) {
+                try { recognition.stop(); } catch(err) {}
+            }
             const micBtn = document.getElementById('micBtn');
             micBtn.style.background = 'linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%)';
             micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Hablar con el Diario';
         }
 
+        // ENVÍO REAL A GEMINI/LEO
         async function enviarMensajeTexto() {
             const inputField = document.getElementById('userInput');
             const mensaje = inputField.value.trim();
             if (!mensaje) return;
 
+            if (grabadoActivo) {
+                detenerGrabacion();
+            }
+
             agregarMensajeChat('msg-usuario', mensaje);
             inputField.value = '';
+
+            const idCargando = 'msg-load-' + Date.now();
+            agregarMensajeChat('msg-cuidador', 'Sintonizando con el Registro Akáshico...', idCargando);
 
             try {
                 const response = await fetch(`${RENDER_URL}/chat`, {
@@ -822,59 +828,112 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
                         message: mensaje,
-                        producto: productoActual 
+                        producto: productoActual || 'registros-akashicos',
+                        usuario: nombreUsuarioLlave,
+                        instruccion_akashica: "Yo soy el Registro Akáshico, la historia de tu alma en dualidad."
                     })
                 });
 
+                const elemCargando = document.getElementById(idCargando);
+
                 if (response.ok) {
                     const data = await response.json();
-                    const textoRespuesta = data.response || data.message || "El Diario susurra la verdad a tu alma.";
-                    agregarMensajeChat('msg-cuidador', textoRespuesta);
-                    if (data.audio_url) {
-                        reproducirAudioBluetooth(data.audio_url);
+                    const respuestaReal = data.response || data.respuesta || data.message;
+                    
+                    if (respuestaReal) {
+                        if (elemCargando) elemCargando.innerText = respuestaReal;
+                        
+                        // Uso exclusivo de la voz neural de Álvaro
+                        if (data.audio_url) {
+                            reproducirVozNeuralAlvaro(data.audio_url);
+                        } else {
+                            reproducirVozNeuralAlvaro(`${RENDER_URL}/media/tts?text=${encodeURIComponent(respuestaReal)}`);
+                        }
                     } else {
-                        hablarVozLocal(textoRespuesta);
+                        if (elemCargando) elemCargando.innerText = "No se recibió respuesta válida del servidor.";
                     }
                 } else {
-                    agregarMensajeChat('msg-cuidador', 'Tus palabras han sido recibidas en las páginas del registro.');
+                    if (elemCargando) elemCargando.innerText = `Error de conexión en servidor (${response.status}).`;
                 }
             } catch (error) {
-                agregarMensajeChat('msg-cuidador', 'El registro abraza tu mensaje con amor y presencia.');
+                const elemCargando = document.getElementById(idCargando);
+                if (elemCargando) elemCargando.innerText = "Error de red: No fue posible conectar con Leo en Render.";
             }
         }
 
-        function hablarVozLocal(texto) {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(texto);
-                utterance.lang = 'es-ES';
-                utterance.rate = 0.9;
-                window.speechSynthesis.speak(utterance);
+        function reproducirVideoPaso(categoria, clave) {
+            const videoPlayer = document.getElementById('playerVideo');
+            const videoSource = document.getElementById('videoSource');
+
+            videoSource.src = `${RENDER_URL}/media/${categoria}/${clave}`;
+            videoPlayer.load();
+            videoPlayer.play().catch(e => console.log("Cargando reproductor multimedia..."));
+            
+            agregarMensajeChat('msg-cuidador', `Sintonizando la frecuencia de ${categoria} (${clave})...`);
+        }
+
+        async function consultarSolia() {
+            const soliaInput = document.getElementById('soliaInput');
+            const txt = soliaInput.value.trim();
+            if (!txt) return;
+
+            const box = document.getElementById('soliaChatDisplay');
+            box.innerText = `Sol-ÍA procesando: "${txt}"...`;
+            soliaInput.value = '';
+
+            try {
+                const resp = await fetch(`${RENDER_URL}/soporte`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ consulta: txt })
+                });
+                
+                let respuestaSoporte = "";
+                if (resp.ok) {
+                    const data = await resp.json();
+                    respuestaSoporte = data.respuesta || "Soporte Sol-ÍA: Por favor verifique el nombre ingresado en la llave.";
+                } else {
+                    respuestaSoporte = "Sol-ÍA: Verificando la señal con la plataforma. Reintenta en breve.";
+                }
+                
+                box.innerText = respuestaSoporte;
+                reproducirVozNeuralAlvaro(`${RENDER_URL}/media/tts?text=${encodeURIComponent(respuestaSoporte)}`);
+            } catch (e) {
+                const msjErr = "Sol-ÍA: Asistencia técnica activa. Revisa tu conexión o el nombre de tu llave.";
+                box.innerText = msjErr;
+                reproducirVozNeuralAlvaro(`${RENDER_URL}/media/tts?text=${encodeURIComponent(msjErr)}`);
             }
         }
 
-        function agregarMensajeChat(clase, texto) {
+        // REPRODUCCIÓN EXCLUSIVA CON LA VOZ NEURAL DE ÁLVARO (Sin voz sintética de navegador)
+        function reproducirVozNeuralAlvaro(audioSrc) {
+            const audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.src = audioSrc;
+            audioPlayer.play().catch(e => console.log("Salida de voz neural lista."));
+        }
+
+        function agregarMensajeChat(clase, texto, idOpción = null) {
             const chatDisplay = document.getElementById('chatDisplay');
             const nuevoMsg = document.createElement('div');
             nuevoMsg.className = clase;
+            if (idOpción) nuevoMsg.id = idOpción;
             nuevoMsg.innerText = texto;
             chatDisplay.appendChild(nuevoMsg);
             chatDisplay.scrollTop = chatDisplay.scrollHeight;
         }
 
-        function reproducirAudioBluetooth(audioSrc) {
-            const audioPlayer = document.getElementById('audioPlayer');
-            audioPlayer.src = audioSrc;
-            audioPlayer.play().catch(e => console.log("Salida de audio lista."));
-        }
-
+        // BITÁCORA PRIVADA LOCAL (No se comparte con nadie)
         function guardarTestimonio() {
             const testimonio = document.getElementById('textoTestimonio').value.trim();
             if(!testimonio) {
                 alert("Por favor escribe tu sentir antes de guardar.");
                 return;
             }
-            alert("Tu vivencia ha quedado grabada en la memoria sagrada de tu diario.");
+            const notasPrevias = JSON.parse(localStorage.getItem('diario_notas_privadas') || '[]');
+            notasPrevias.push({ fecha: new Date().toLocaleString(), texto: testimonio });
+            localStorage.setItem('diario_notas_privadas', JSON.stringify(notasPrevias));
+            
+            alert("Tu vivencia ha quedado guardada de forma privada en la memoria de tu dispositivo.");
             document.getElementById('textoTestimonio').value = '';
         }
     </script>
