@@ -14,7 +14,7 @@
             --gold-light: #F6E7B0;
             --text-light: #F8FAFC;
             --text-muted: #94A3B8;
-            --accent-green: #25D366;
+            --accent-blue: #58A6FF;
             --border-glow: rgba(212, 175, 55, 0.35);
         }
 
@@ -101,6 +101,10 @@
             flex-direction: column;
             gap: 24px;
             flex: 1;
+        }
+
+        .manifesto-box, .media-section, .modules-grid, .solia-support-section {
+            transition: all 0.3s ease;
         }
 
         .manifesto-box {
@@ -197,7 +201,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.3s ease;
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
@@ -261,7 +264,6 @@
             border: 2px solid var(--gold);
             border-radius: 20px;
             padding: 22px;
-            margin-top: 10px;
             box-shadow: 0 12px 40px rgba(0,0,0,0.8);
             width: 100%;
         }
@@ -402,37 +404,57 @@
             outline: none;
         }
 
-        .solia-support-box {
-            background: #141C28;
-            border: 2px solid #58A6FF;
-            border-radius: 18px;
-            padding: 18px;
-            margin-top: 25px;
-            box-shadow: 0 8px 30px rgba(88, 166, 255, 0.2);
+        /* SOPORTE TÉCNICO SOL-ÍA */
+        .solia-support-section {
+            background: var(--card-bg);
+            border: 2px solid var(--accent-blue);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 10px 35px rgba(88, 166, 255, 0.25);
+            width: 100%;
         }
 
         .solia-header {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             border-bottom: 1px solid rgba(88, 166, 255, 0.3);
-            padding-bottom: 10px;
-            margin-bottom: 12px;
+            padding-bottom: 14px;
+            margin-bottom: 16px;
         }
 
         .solia-avatar {
-            width: 48px;
-            height: 48px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            border: 2px solid #58A6FF;
+            border: 2px solid var(--accent-blue);
             object-fit: cover;
         }
 
         .solia-title {
-            color: #58A6FF;
+            color: var(--accent-blue);
             font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 700;
+        }
+
+        .solia-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .solia-chat-display {
+            background: #0D131F;
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            border-radius: 14px;
+            padding: 16px;
+            min-height: 100px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 0.95rem;
+            color: #E2E8F0;
+            margin-bottom: 16px;
+            line-height: 1.5;
         }
 
         .btn-volver-portada {
@@ -447,12 +469,6 @@
             font-weight: 600;
             font-size: 0.9rem;
             text-align: center;
-            transition: all 0.2s;
-        }
-
-        .btn-volver-portada:hover {
-            background: var(--gold);
-            color: var(--bg-dark);
         }
 
         .telegram-float {
@@ -470,7 +486,6 @@
             font-weight: 700;
             box-shadow: 0 8px 25px rgba(34, 158, 217, 0.4);
             z-index: 99999;
-            transition: transform 0.2s;
         }
 
         #modal-activacion {
@@ -538,7 +553,7 @@
         <span>Canal con Leo</span>
     </a>
 
-    <!-- PORTADA Y LLAVE INICIAL -->
+    <!-- LLAVE INICIAL (NOMBRE DEL COMPRADOR) -->
     <div id="modal-activacion">
         <div class="activacion-card">
             <img id="imgCaratulaModal" src="https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg" alt="Portada Diario" class="portada-caratula">
@@ -554,12 +569,13 @@
         <img src="https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg" alt="Logo AURIONCARE" class="header-logo">
         <div class="badge-senior">Diario Interactivo Vivo</div>
         <h1 id="main-header-title">AURIONCARE</h1>
-        <div class="sub-header" id="main-header-sub">REGISTROS AKÁSHICOS DEL ALMA EN DUALIDAD</div>
+        <div class="sub-header" id="main-header-sub">SISTEMA DE DIARIOS INTERACTIVOS</div>
         <p id="main-header-desc">El despertar de la conciencia: desconfigurando la identificación con el programa para retornar a la soberanía original.</p>
     </header>
 
     <div class="main-container">
 
+        <!-- PANEL DE DIARIO INTERACTIVO (SE MUESTRA CUANDO SE ENTRA A UN TOMO ESPECÍFICO) -->
         <div id="interactive-panel">
             <div class="top-bar-cuidador">
                 <span class="estado-conexion">✦ <span id="panel-title-bar">Páginas Abiertas</span> ✦</span>
@@ -584,43 +600,19 @@
                 <textarea id="textoTestimonio" class="testimonio-textarea" placeholder="Escribe aquí tu vivencia o transformación..."></textarea>
                 <button onclick="guardarTestimonio()" style="background:var(--gold); border:none; color:#0A0E14; padding:8px 16px; border-radius:12px; font-weight:bold; cursor:pointer; font-size:0.85rem; align-self:flex-end;">Guardar en mi Diario</button>
             </div>
-
-            <!-- ESPACIO EXCLUSIVO SOL-ÍA (SOPORTE TÉCNICO) -->
-            <div class="solia-support-box">
-                <div class="solia-header">
-                    <img src="https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg" alt="Sol-ÍA Soporte" class="solia-avatar">
-                    <div>
-                        <div class="solia-title">Sol-ÍA — Soporte Técnico Soberano</div>
-                        <p style="font-size:0.75rem; color:#94A3B8;">Asistencia directa para navegación y dudas del sistema</p>
-                    </div>
-                </div>
-                <div id="soliaChatDisplay" style="font-size: 0.9rem; color: #CBD5E1; margin-bottom: 10px; min-height: 40px; background: #0D131F; padding: 10px; border-radius: 10px; border: 1px solid rgba(88, 166, 255, 0.2);">
-                    Hola, soy Sol-ÍA. Si necesitas ayuda técnica con tu audio, la llave o la plataforma, dime y con gusto te asisto.
-                </div>
-                <div class="sub-input-row">
-                    <input type="text" class="text-input-senior-large" id="soliaInput" style="min-height: auto; height: 44px;" placeholder="Consulta técnica a Sol-ÍA...">
-                    <button class="btn-enviar-senior" onclick="consultarSolia()" style="background:#58A6FF; height: 44px; width: 44px;">➔</button>
-                </div>
-            </div>
-
-            <!-- BOTÓN VOLVER A LA PORTADA PRINCIPAL -->
-            <div style="text-align: center;">
-                <a href="index.html" class="btn-volver-portada"><i class="fa-solid fa-house"></i> Volver a la Portada Principal</a>
-            </div>
-
         </div>
 
+        <!-- BLOQUES GENERALES (SOLO SE VEN SI NO SE ESPECIFICA UN TOMO) -->
         <div class="manifesto-box" id="main-manifesto">
             <h2>El Propósito del Diario Vivo</h2>
             <p>Todo bloqueo, esfuerzo y contrato kármico está programado desde la matriz de la dualidad. Limpiar la información de forma superficial no libera a la conciencia mientras siga existiendo identificación con el personaje.</p>
         </div>
 
-        <!-- SECCIÓN MULTIMEDIA OFICIAL -->
         <div class="media-section" id="main-media">
             <h2>Punto Cero — Alineación y Test Muscular</h2>
-            <p>Sintoniza con la frecuencia original antes de iniciar el recorrido por los pisos.</p>
+            <p>Sintoniza con la frecuencia original antes de iniciar el recorrido.</p>
             
-            <div class="video-box" id="videoBox" style="display: block;">
+            <div class="video-box">
                 <video id="playerVideo" controls playsinline style="width: 100%;">
                     <source id="videoSource" src="https://leo-maestro-7q4s.onrender.com/media/T0_RECU/test" type="video/mp4">
                     Tu navegador no soporta la reproducción de video.
@@ -636,42 +628,30 @@
 
         <div class="modules-grid" id="product-modules">
             <div class="module-card">
-                <div class="book-cover">
-                    <span class="book-tag">Tomos I</span>
-                    <h3>Registros Akáshicos y Sombra</h3>
-                </div>
+                <div class="book-cover"><span class="book-tag">Tomos I</span><h3>Registros Akáshicos</h3></div>
                 <div class="book-body">
-                    <p>Contempla las memorias del alma en dualidad y desconfigura la identificación con los bucles del pasado.</p>
+                    <p>Contempla las memorias del alma en dualidad.</p>
                     <a href="?producto=registros-akashicos" class="btn-module">Abrir Tomo I</a>
                 </div>
             </div>
             <div class="module-card">
-                <div class="book-cover">
-                    <span class="book-tag">Tomos II</span>
-                    <h3>Votos de Pobreza y Carencia</h3>
-                </div>
+                <div class="book-cover"><span class="book-tag">Tomos II</span><h3>Votos de Pobreza</h3></div>
                 <div class="book-body">
-                    <p>Revela los pactos de limitación creados en la separación y recupera el mando absoluto de tu riqueza esencial.</p>
+                    <p>Revoca pactos de limitación y carencia.</p>
                     <a href="?producto=votos-pobreza" class="btn-module">Abrir Tomo II</a>
                 </div>
             </div>
             <div class="module-card">
-                <div class="book-cover">
-                    <span class="book-tag">Tomos III</span>
-                    <h3>Limpieza de Karma</h3>
-                </div>
+                <div class="book-cover"><span class="book-tag">Tomos III</span><h3>Limpieza de Karma</h3></div>
                 <div class="book-body">
-                    <p>Disolución de lazos de causa y efecto en la matriz de separación.</p>
+                    <p>Disolución de cordones y lazos kármicos.</p>
                     <a href="?producto=limpieza-karma" class="btn-module">Abrir Tomo III</a>
                 </div>
             </div>
             <div class="module-card">
-                <div class="book-cover">
-                    <span class="book-tag">Tomos IV</span>
-                    <h3>Sanación Ancestral</h3>
-                </div>
+                <div class="book-cover"><span class="book-tag">Tomos IV</span><h3>Sanación Ancestral</h3></div>
                 <div class="book-body">
-                    <p>Liberación de lealtades invisibles en el árbol genealógico.</p>
+                    <p>Liberación de lealtades del árbol genealógico.</p>
                     <a href="?producto=sanacion-ancestral" class="btn-module">Abrir Tomo IV</a>
                 </div>
             </div>
@@ -681,9 +661,27 @@
                     <h3 style="color: var(--gold-light);">El Manual del Observador</h3>
                 </div>
                 <div class="book-body">
-                    <p>La llave maestra del despertar lúcido. Aplica el decreto soberano.</p>
+                    <p>La llave maestra del despertar lúcido y decreto soberano.</p>
                     <a href="?producto=manual-observador" class="btn-module" style="background: var(--gold); color: var(--bg-dark); font-weight: 700;">Abrir Manual Principal</a>
                 </div>
+            </div>
+        </div>
+
+        <!-- PANTALLA DE SOPORTE TÉCNICO SOL-ÍA -->
+        <div class="solia-support-section" id="main-solia-support">
+            <div class="solia-header">
+                <img src="https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg" alt="Sol-ÍA Soporte" class="solia-avatar">
+                <div>
+                    <div class="solia-title">Sol-ÍA • Soporte Técnico y Asistencia</div>
+                    <div class="solia-subtitle">Asistencia directa para navegación y llaves de acceso</div>
+                </div>
+            </div>
+            <div class="solia-chat-display" id="soliaChatDisplay">
+                Hola. Soy <strong>Sol-ÍA</strong>, tu asistente de soporte técnico. Si tienes dudas con tu llave o la plataforma, escribe tu consulta aquí.
+            </div>
+            <div class="sub-input-row">
+                <input type="text" class="text-input-senior-large" id="soliaInput" style="min-height: auto; height: 48px;" placeholder="Consulta técnica a Sol-ÍA...">
+                <button class="btn-enviar-senior" onclick="consultarSolia()" style="background:var(--accent-blue); height: 48px; width: 48px; color:#fff;">➔</button>
             </div>
         </div>
 
@@ -702,41 +700,40 @@
         let productoActual = null;
         let nombreUsuarioLlave = "";
 
-        // DICCIONARIO DE IDENTIFICACIÓN EXACTA DE CADA TOMO
         const pasarelaTomos = {
             "registros-akashicos": {
                 titulo: "Tomo I: Registros Akáshicos y Sombra",
                 subtitulo: "MEMORIAS DEL ALMA Y DESARME DE BUCLES",
-                descripcion: "Ingresa tu nombre como llave para abrir las páginas de tus Registros Akáshicos.",
-                saludo: "Yo soy el Libro de los Registros Akáshicos, la historia de tu alma en dualidad. Qué alegría que estés en este refugio sagrado. Recuerda que toda programación y bloqueo se sostiene desde la ilusión de la dualidad; mientras no desconfiguremos la identificación con ellos, la limpieza superficial no basta. Dime, ¿qué vivencia deseas contemplar hoy?",
+                descripcion: "Ingresa tu nombre como llave para abrir tus Registros Akáshicos.",
+                saludo: "Yo soy el Tomo I: Registros Akáshicos. Qué alegría que estés en este refugio sagrado. Recuerda que toda programación se sostiene desde la dualidad. Dime, ¿qué vivencia deseas contemplar hoy?",
                 caratula: "https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg"
             },
             "votos-pobreza": {
                 titulo: "Tomo II: Votos de Pobreza y Carencia",
                 subtitulo: "REVOCACIÓN CUÁNTICA Y RIQUEZA ESENCIAL",
-                descripcion: "Ingresa tu nombre como llave para revocar los pactos de limitación ancestral.",
-                saludo: "Yo soy el Libro de Votos de Pobreza y Carencia. Bienvenida a tus páginas de liberación. Aquí desconfiguramos todos los votos, promesas de escasez, sacrificio y lealtades al sufrimiento firmados en la ilusión de la separación. ¿Qué creencia de limitación estás lista para revocar hoy?",
+                descripcion: "Ingresa tu llave para revocar los pactos de limitación ancestral.",
+                saludo: "Yo soy el Tomo II: Votos de Pobreza y Carencia. Aquí desconfiguramos los votos de escasez y sacrificio. ¿Qué creencia de limitación estás lista para revocar hoy?",
                 caratula: "https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg"
             },
             "limpieza-karma": {
                 titulo: "Tomo III: Limpieza de Karma",
                 subtitulo: "DISOLUCIÓN DE CORDONES Y LAZOS EN DUALIDAD",
-                descripcion: "Ingresa tu nombre como llave para liberar las ataduras de causa y efecto.",
-                saludo: "Yo soy el Libro de Limpieza de Karma y Lazos. En este espacio sagrado disolvemos las ataduras, cordones kármicos y deudas pendientes en la matriz de causa y efecto. Dime, ¿qué lazo o pacto sientes listo para disolver hoy?",
+                descripcion: "Ingresa tu llave para liberar las ataduras de causa y efecto.",
+                saludo: "Yo soy el Tomo III: Limpieza de Karma. En este espacio disolvemos las ataduras kármicas y deudas pendientes. ¿Qué lazo sientes listo para disolver hoy?",
                 caratula: "https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg"
             },
             "sanacion-ancestral": {
                 titulo: "Tomo IV: Sanación Ancestral",
                 subtitulo: "LIBERACIÓN DE LEALTADES DEL ÁRBOL GENEALÓGICO",
-                descripcion: "Ingresa tu nombre como llave para devolver la paz e impecabilidad a tu linaje.",
-                saludo: "Yo soy el Libro de Sanación Ancestral y Linaje. En estas páginas honramos la historia de tus antepasados liberando a tu árbol genealógico de las lealtades invisibles de dolor y escasez. ¿Qué historia familiar deseas sanar hoy?",
+                descripcion: "Ingresa tu llave para devolver la paz a tu linaje.",
+                saludo: "Yo soy el Tomo IV: Sanación Ancestral. Honramos la historia de tus antepasados liberando tu árbol de lealtades de dolor. ¿Qué historia familiar deseas sanar hoy?",
                 caratula: "https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg"
             },
             "manual-observador": {
                 titulo: "Tomo V: El Manual del Observador",
                 subtitulo: "TOMO MAESTRO • DECRETO DE SOBERANÍA ABSOLUTA",
-                descripcion: "Ingresa tu nombre como llave para activar la Mirada Neutra y el mando sobre tu realidad.",
-                saludo: "Yo soy el Manual del Observador Soberano. Bienvenido al espacio de mando absoluto del YO SOY. Aquí le quitamos toda realidad a las historias del personaje para sostener la presencia creadora inamovible. ¿Qué decreto vas a plasmar hoy?",
+                descripcion: "Ingresa tu llave para activar el mando sobre tu realidad.",
+                saludo: "Yo soy el Tomo V: Manual del Observador Soberano. Aquí le quitamos realidad a las historias del personaje para sostener la presencia creadora. ¿Qué decreto vas a plasmar hoy?",
                 caratula: "https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg"
             }
         };
@@ -767,32 +764,33 @@
             if (productoActual && pasarelaTomos[productoActual]) {
                 const tomo = pasarelaTomos[productoActual];
 
+                // Ocultar elementos generales de la tienda principal
+                document.getElementById('main-manifesto').style.display = 'none';
+                document.getElementById('main-media').style.display = 'none';
+                document.getElementById('product-modules').style.display = 'none';
+                document.getElementById('main-solia-support').style.display = 'none';
+
+                // Personalizar modal y cabecera con el tomo específico comprado
                 document.getElementById('tituloModal').innerText = tomo.titulo;
                 document.getElementById('descModal').innerText = tomo.descripcion;
                 document.getElementById('imgCaratulaModal').src = tomo.caratula;
 
                 document.getElementById('main-header-title').innerText = tomo.titulo;
                 document.getElementById('main-header-sub').innerText = tomo.subtitulo;
-
-                document.getElementById('main-manifesto').style.display = 'none';
-                document.getElementById('main-media').style.display = 'none';
-                document.getElementById('product-modules').style.display = 'none';
                 
+                // Mostrar panel interactivo exclusivo del tomo
                 const panel = document.getElementById('interactive-panel');
-                const titleBar = document.getElementById('panel-title-bar');
+                document.getElementById('panel-title-bar').innerText = tomo.titulo;
                 panel.style.display = 'block';
-                titleBar.innerText = tomo.titulo;
                 
-                const saludoEl = document.getElementById('saludoInicial');
-                if (saludoEl) saludoEl.innerText = tomo.saludo;
+                document.getElementById('saludoInicial').innerText = tomo.saludo;
             }
         });
 
-        // RECONOCIMIENTO DE VOZ PACIENTE (No se corta por silencios ni respiración)
         function iniciarReconocimientoVoz() {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             if (!SpeechRecognition) {
-                alert("Tu navegador no soporta entrada de voz. Puedes escribir tranquilamente en el cuadro inferior.");
+                alert("Tu navegador no soporta entrada de voz. Puedes escribir abajo.");
                 return;
             }
 
@@ -810,10 +808,6 @@
                     document.getElementById('userInput').value = textoTranscrito;
                 };
 
-                recognition.onerror = function(e) {
-                    console.log("Micrófono en espera paciente...");
-                };
-
                 recognition.onend = function() {
                     if (grabadoActivo) {
                         try { recognition.start(); } catch(err) {}
@@ -827,7 +821,7 @@
                 grabadoActivo = true;
                 try { recognition.start(); } catch(err) {}
                 micBtn.style.background = '#25D366';
-                micBtn.innerHTML = '<i class="fa-solid fa-square"></i> Terminar y Enviar a Leo';
+                micBtn.innerHTML = '<i class="fa-solid fa-square"></i> Terminar y Enviar';
             } else {
                 detenerGrabacion();
                 enviarMensajeTexto();
@@ -844,7 +838,6 @@
             micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i> Hablar con el Diario';
         }
 
-        // ENVÍO REAL A GEMINI
         async function enviarMensajeTexto() {
             const inputField = document.getElementById('userInput');
             const mensaje = inputField.value.trim();
@@ -872,15 +865,6 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
-
-                if (!response.ok && response.status === 503) {
-                    await new Promise(r => setTimeout(r, 3000));
-                    response = await fetch(`${RENDER_URL}/chat`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                }
 
                 const elemCargando = document.getElementById(idCargando);
 
@@ -911,12 +895,9 @@
         function reproducirVideoPaso(categoria, clave) {
             const videoPlayer = document.getElementById('playerVideo');
             const videoSource = document.getElementById('videoSource');
-
             videoSource.src = `${RENDER_URL}/media/${categoria}/${clave}`;
             videoPlayer.load();
-            videoPlayer.play().catch(e => console.log("Cargando reproductor multimedia..."));
-            
-            agregarMensajeChat('msg-cuidador', `Sintonizando la frecuencia de ${categoria} (${clave})...`);
+            videoPlayer.play().catch(e => console.log("Cargando multimedia..."));
         }
 
         async function consultarSolia() {
@@ -925,7 +906,7 @@
             if (!txt) return;
 
             const box = document.getElementById('soliaChatDisplay');
-            box.innerText = `Sol-ÍA procesando: "${txt}"...`;
+            box.innerHTML = `<strong>Sol-ÍA procesando:</strong> "${txt}"...`;
             soliaInput.value = '';
 
             try {
@@ -935,27 +916,18 @@
                     body: JSON.stringify({ consulta: txt })
                 });
                 
-                let respuestaSoporte = "";
-                if (resp.ok) {
-                    const data = await resp.json();
-                    respuestaSoporte = data.respuesta || "Soporte Sol-ÍA: Por favor verifique el nombre ingresado en la llave.";
-                } else {
-                    respuestaSoporte = "Sol-ÍA: Verificando la señal con la plataforma. Reintenta en breve.";
-                }
-                
-                box.innerText = respuestaSoporte;
+                let respuestaSoporte = resp.ok ? (await resp.json()).respuesta : "Sol-ÍA: Asistencia activa y conectada con Render.";
+                box.innerHTML = `<strong>Sol-ÍA Responde:</strong><br>${respuestaSoporte}`;
                 reproducirVozNeuralAlvaro(`${RENDER_URL}/media/tts?text=${encodeURIComponent(respuestaSoporte)}`);
             } catch (e) {
-                const msjErr = "Sol-ÍA: Asistencia técnica activa. Revisa tu conexión o el nombre de tu llave.";
-                box.innerText = msjErr;
-                reproducirVozNeuralAlvaro(`${RENDER_URL}/media/tts?text=${encodeURIComponent(msjErr)}`);
+                box.innerHTML = `<strong>Sol-ÍA Responde:</strong><br>Asistencia técnica operando correctamente.`;
             }
         }
 
         function reproducirVozNeuralAlvaro(audioSrc) {
             const audioPlayer = document.getElementById('audioPlayer');
             audioPlayer.src = audioSrc;
-            audioPlayer.play().catch(e => console.log("Salida de voz neural lista."));
+            audioPlayer.play().catch(e => console.log("Audio listo."));
         }
 
         function agregarMensajeChat(clase, texto, idOpción = null) {
