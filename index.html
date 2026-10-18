@@ -853,14 +853,18 @@
             const idCargando = 'msg-load-' + Date.now();
             agregarMensajeChat('msg-cuidador', 'Conectando con la sabiduría del tomo...', idCargando);
 
+            // CORRECCIÓN APLICADA: Sincronizado con la ruta /api/chat y los parámetros del backend de Python
             const payload = { 
-                message: mensaje,
+                mensaje: mensaje,
+                faceta: "cuidador",
+                audio: true,
+                voz_tipo: "femenino",
                 producto: productoActual || 'registros-akashicos',
                 usuario: nombreUsuarioLlave
             };
 
             try {
-                let response = await fetch(`${RENDER_URL}/chat`, {
+                let response = await fetch(`${RENDER_URL}/api/chat`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
@@ -870,15 +874,16 @@
 
                 if (response.ok) {
                     const data = await response.json();
-                    const respuestaReal = data.response || data.respuesta || data.message;
+                    const respuestaReal = data.respuesta || data.response || data.message;
                     
                     if (respuestaReal) {
                         if (elemCargando) elemCargando.innerText = respuestaReal;
                         
-                        if (data.audio_url) {
+                        if (data.audio_base64) {
+                            const audioSrc = `data:${data.audio_mime || 'audio/mpeg'};base64,${data.audio_base64}`;
+                            reproducirVozNeuralAlvaro(audioSrc);
+                        } else if (data.audio_url) {
                             reproducirVozNeuralAlvaro(data.audio_url);
-                        } else {
-                            reproducirVozNeuralAlvaro(`${RENDER_URL}/media/tts?text=${encodeURIComponent(respuestaReal)}`);
                         }
                     } else {
                         if (elemCargando) elemCargando.innerText = "No se recibió respuesta válida del servidor.";
