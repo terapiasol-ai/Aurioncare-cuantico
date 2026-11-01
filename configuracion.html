@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURIONCARE • Configuración</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <style>
+      .topbar { width: 100%; background: linear-gradient(180deg, #182232 0%, #0b0f17 100%); border-bottom: 1px solid rgba(212, 175, 55, 0.35); }
+      .topbar-inner { max-width: 1200px; margin: 0 auto; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+      .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+      .brand-mark { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #d4af37, #aa7c11); display: grid; place-items: center; color: #0a0e14; font-weight: 800; }
+      .nav { display: flex; flex-wrap: wrap; gap: 8px; }
+      .nav a { padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(212, 175, 55, 0.25); color: #f8fafc; background: rgba(255,255,255,0.02); }
+      .nav a.active, .nav a:hover { background: rgba(212, 175, 55, 0.12); border-color: rgba(212, 175, 55, 0.9); }
+      .container { max-width: 1200px; margin: 28px auto; padding: 0 20px 50px; }
+      .hero { background: #141c28; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 18px; padding: 28px; margin-bottom: 24px; box-shadow: 0 12px 35px rgba(0,0,0,0.35); }
+      .kicker { display: inline-block; color: #d4af37; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 999px; padding: 6px 12px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.7rem; font-weight: 700; }
+      h1, h2, h3 { margin: 0 0 12px; font-family: 'Cinzel', serif; }
+      h1 { color: #f6e7b0; font-size: clamp(2rem, 3vw, 3rem); }
+      .lead { color: #cbd5e1; max-width: 760px; line-height: 1.7; }
+      .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+      .field { display: flex; flex-direction: column; gap: 8px; }
+      label { color: #e2e8f0; font-size: 0.9rem; }
+      input, select { width: 100%; background: #0d131f; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 12px; color: #fff; padding: 12px 14px; }
+      .toolbar { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+      .primary-btn { background: linear-gradient(135deg, #d4af37, #aa7c11); color: #0a0e14; border: none; border-radius: 999px; padding: 11px 16px; font-weight: 700; cursor: pointer; }
+      @media (max-width: 700px) { .topbar-inner { flex-direction: column; align-items: flex-start; } }
+    </style>
+  </head>
+  <body data-page="configuracion">
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="brand"><div class="brand-mark">A</div><span>Aurioncare</span></div>
+        <nav class="nav">
+          <a href="index.html">Inicio</a>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="usuarios.html">Usuarios</a>
+          <a class="active" href="configuracion.html">Configuración</a>
+        </nav>
+      </div>
+    </div>
+
+    <main class="container">
+      <section class="hero">
+        <div class="kicker">Sistema</div>
+        <h1>Configuración del entorno</h1>
+        <p class="lead">Ajusta los parámetros operativos del sistema, sincronización y modo de mantenimiento.</p>
+      </section>
+
+      <section class="card">
+        <form id="config-form">
+          <div class="form-grid">
+            <div class="field"><label for="nombreSistema">Nombre del sistema</label><input id="nombreSistema" data-setting="nombreSistema" name="nombreSistema" /></div>
+            <div class="field"><label for="zonaHoraria">Zona horaria</label><select id="zonaHoraria" data-setting="zonaHoraria" name="zonaHoraria"><option value="Europe/Madrid">Europe/Madrid</option><option value="UTC">UTC</option><option value="America/Mexico_City">America/Mexico_City</option><option value="America/Bogota">America/Bogota</option></select></div>
+            <div class="field"><label for="intervaloSincronizacion">Intervalo de sincronización (min)</label><input id="intervaloSincronizacion" data-setting="intervaloSincronizacion" name="intervaloSincronizacion" type="number" min="5" max="120" /></div>
+            <div class="field" style="justify-content:flex-end;"><label for="modoMantenimiento">Modo de mantenimiento</label><input id="modoMantenimiento" data-setting="modoMantenimiento" name="modoMantenimiento" type="checkbox" style="width:20px;height:20px;margin-top:12px;" /></div>
+          </div>
+          <div class="toolbar"><button class="primary-btn" type="submit">Guardar configuración</button></div>
+        </form>
+      </section>
+    </main>
+
+    <script src="assets/site.js"></script>
+  </body>
+</html>
