@@ -2,13 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Asistente Senior</title>
   <style>
     :root {
       --bg: #0f172a;
       --panel: #111827;
-      --panel-2: #1f2937;
       --gold: #d4af37;
       --gold-soft: #f5e6ad;
       --text: #f8fafc;
@@ -19,29 +18,27 @@
     }
 
     * { box-sizing: border-box; }
+
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
-      height: 100%;
+      min-height: 100vh;
       background: var(--bg);
       color: var(--text);
       font-family: Arial, sans-serif;
-      overflow: hidden;
     }
 
     body {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 12px;
+      padding: 18px;
     }
 
     .app {
       width: 100%;
       max-width: 520px;
-      height: 100%;
-      max-height: 920px;
       background: var(--panel);
       border: 2px solid var(--line);
       border-radius: 24px;
@@ -85,7 +82,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: var(--panel-2);
+      background: #1f2937;
       border: 1px solid var(--line);
       border-radius: 14px;
       padding: 10px 12px;
@@ -134,8 +131,8 @@
       font-size: 24px;
     }
 
-    .mic-btn span:last-child {
-      font-size: 20px;
+    .mic-btn .icon {
+      font-size: 54px;
     }
 
     .chat-box {
@@ -180,7 +177,6 @@
       display: flex;
       gap: 10px;
       align-items: flex-end;
-      margin-top: auto;
     }
 
     textarea {
@@ -243,14 +239,14 @@
     <div class="voice-selector">
       <label for="voiceSelect">Voz:</label>
       <select id="voiceSelect">
-        <option value="Aoede">Aoede (Femenina)</option>
-        <option value="Algieba">Algieba (Masculina)</option>
+        <option value="femenino">Aoede / Femenina</option>
+        <option value="masculino">Algieba / Masculina</option>
       </select>
     </div>
 
     <div class="mic-wrap">
       <button class="mic-btn" id="micBtn" type="button">
-        <span style="font-size: 54px;">🎙️</span>
+        <span class="icon">🎙️</span>
         <span id="micText">Hablar</span>
       </button>
     </div>
@@ -294,11 +290,11 @@
     }
 
     function getSelectedVoice() {
-      return voiceSelect.value || "Aoede";
+      return voiceSelect.value || "femenino";
     }
 
     function getSelectedVoiceType() {
-      return getSelectedVoice() === "Algieba" ? "masculino" : "femenino";
+      return getSelectedVoice() === "masculino" ? "masculino" : "femenino";
     }
 
     async function sendMessage() {
@@ -331,7 +327,6 @@
         });
 
         const data = await response.json();
-
         const finalText =
           data.respuesta ||
           data.response ||
@@ -342,8 +337,10 @@
 
         if (data.audio_base64) {
           const mime = data.audio_mime || "audio/mpeg";
-          const src = `data:${mime};base64,${data.audio_base64}`;
-          audioPlayer.src = src;
+          const bytes = Uint8Array.from(atob(data.audio_base64), c => c.charCodeAt(0));
+          const blob = new Blob([bytes], { type: mime });
+          const url = URL.createObjectURL(blob);
+          audioPlayer.src = url;
           audioPlayer.play().catch(() => {});
         } else if (data.audio_url) {
           audioPlayer.src = data.audio_url;
