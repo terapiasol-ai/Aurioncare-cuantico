@@ -553,7 +553,6 @@
         <span>Canal con Leo</span>
     </a>
 
-    <!-- LLAVE INICIAL (NOMBRE DEL COMPRADOR) -->
     <div id="modal-activacion">
         <div class="activacion-card">
             <img id="imgCaratulaModal" src="https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg" alt="Portada Diario" class="portada-caratula">
@@ -575,11 +574,18 @@
 
     <div class="main-container">
 
-        <!-- PANEL DE DIARIO INTERACTIVO (SE MUESTRA CUANDO SE ENTRA A UN TOMO ESPECÍFICO) -->
         <div id="interactive-panel">
             <div class="top-bar-cuidador">
                 <span class="estado-conexion">✦ <span id="panel-title-bar">Páginas Abiertas</span> ✦</span>
                 <span id="nombre-asistente-lbl" style="color: var(--gold-light); font-weight: 600;">Presencia Neutra</span>
+            </div>
+
+            <div style="margin-bottom: 12px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                <label for="voiceSelect" style="color: var(--gold-light); font-weight: 600;">Voz del asistente:</label>
+                <select id="voiceSelect" style="padding: 10px 12px; border-radius: 10px; border: 1px solid var(--gold); background: #0D131F; color: white;">
+                    <option value="Aoede">Aoede (Femenina)</option>
+                    <option value="Algieba">Algieba (Masculina)</option>
+                </select>
             </div>
             
             <div class="chat-display" id="chatDisplay">
@@ -602,7 +608,6 @@
             </div>
         </div>
 
-        <!-- BLOQUES GENERALES (SOLO SE VEN SI NO SE ESPECIFICA UN TOMO) -->
         <div class="manifesto-box" id="main-manifesto">
             <h2>El Propósito del Diario Vivo</h2>
             <p>Todo bloqueo, esfuerzo y contrato kármico está programado desde la matriz de la dualidad. Limpiar la información de forma superficial no libera a la conciencia mientras siga existiendo identificación con el personaje.</p>
@@ -667,7 +672,6 @@
             </div>
         </div>
 
-        <!-- PANTALLA DE SOPORTE TÉCNICO SOL-ÍA -->
         <div class="solia-support-section" id="main-solia-support">
             <div class="solia-header">
                 <img src="https://raw.githubusercontent.com/terapiasol-ai/Aurion/main/aurioncare-logo.jpg" alt="Sol-ÍA Soporte" class="solia-avatar">
@@ -764,13 +768,11 @@
             if (productoActual && pasarelaTomos[productoActual]) {
                 const tomo = pasarelaTomos[productoActual];
 
-                // Ocultar elementos generales de la tienda principal
                 document.getElementById('main-manifesto').style.display = 'none';
                 document.getElementById('main-media').style.display = 'none';
                 document.getElementById('product-modules').style.display = 'none';
                 document.getElementById('main-solia-support').style.display = 'none';
 
-                // Personalizar modal y cabecera con el tomo específico comprado
                 document.getElementById('tituloModal').innerText = tomo.titulo;
                 document.getElementById('descModal').innerText = tomo.descripcion;
                 document.getElementById('imgCaratulaModal').src = tomo.caratula;
@@ -778,7 +780,6 @@
                 document.getElementById('main-header-title').innerText = tomo.titulo;
                 document.getElementById('main-header-sub').innerText = tomo.subtitulo;
                 
-                // Mostrar panel interactivo exclusivo del tomo
                 const panel = document.getElementById('interactive-panel');
                 document.getElementById('panel-title-bar').innerText = tomo.titulo;
                 panel.style.display = 'block';
@@ -853,12 +854,14 @@
             const idCargando = 'msg-load-' + Date.now();
             agregarMensajeChat('msg-cuidador', 'Conectando con la sabiduría del tomo...', idCargando);
 
-            // CORRECCIÓN APLICADA: Sincronizado con la ruta /api/chat y los parámetros del backend de Python
-            const payload = { 
+            const selectVoz = document.getElementById('voiceSelect');
+            const voiceValue = selectVoz ? selectVoz.value : 'Aoede';
+
+            const payload = {
                 mensaje: mensaje,
                 faceta: "cuidador",
                 audio: true,
-                voz_tipo: "femenino",
+                voz_tipo: voiceValue === 'Algieba' ? 'masculino' : 'femenino',
                 producto: productoActual || 'registros-akashicos',
                 usuario: nombreUsuarioLlave
             };
@@ -875,10 +878,10 @@
                 if (response.ok) {
                     const data = await response.json();
                     const respuestaReal = data.respuesta || data.response || data.message;
-                    
+
                     if (respuestaReal) {
                         if (elemCargando) elemCargando.innerText = respuestaReal;
-                        
+
                         if (data.audio_base64) {
                             const audioSrc = `data:${data.audio_mime || 'audio/mpeg'};base64,${data.audio_base64}`;
                             reproducirVozNeuralAlvaro(audioSrc);
