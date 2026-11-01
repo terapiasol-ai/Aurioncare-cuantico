@@ -154,17 +154,20 @@
 </head>
 <body>
 
-    <!-- MODAL DE HABILITACIÓN -->
+    <!-- MODAL DE HABILITACIÓN E IDENTIFICACIÓN INICIAL -->
     <div id="modal-activacion" style="display:flex;">
         <div class="activacion-card">
             <span style="font-size: 2.2rem; display: block; margin-bottom: 4px;">✨</span>
             <h3 style="font-family:'Cinzel',serif; color:var(--gold-light);">AURIONCARE | Años Dorados</h3>
-            <p style="font-size:0.86rem; color:#CBD5E1; margin-bottom:12px;">Ingresa tus datos para activar tu espacio de compañía y bienestar.</p>
+            <p style="font-size:0.86rem; color:#CBD5E1; margin-bottom:12px;">Ingresa tus datos para personalizar a tu asistente y activar tu experiencia.</p>
             
-            <input type="text" id="actNombre" class="perfil-input" placeholder="Tu Nombre (Ej: Sol)">
-            <input type="text" id="actNombreAsistente" class="perfil-input" value="Paz" placeholder="Nombre de tu Asistente (Ej: Paz)">
+            <div style="font-size:0.82rem; color:#CBD5E1; margin-bottom:4px; text-align:left;">Tu Nombre:</div>
+            <input type="text" id="actNombre" class="perfil-input" value="Sol" placeholder="Tu Nombre (Ej: Sol)">
+            
+            <div style="font-size:0.82rem; color:#CBD5E1; margin-bottom:4px; text-align:left;">Nombre de tu Asistente:</div>
+            <input type="text" id="actNombreAsistente" class="perfil-input" value="Paz" placeholder="Nombre (Ej: Paz)">
 
-            <div style="font-size:0.82rem; color:#CBD5E1; margin-bottom:4px; text-align:left;">Selecciona la Voz de tu Asistente:</div>
+            <div style="font-size:0.82rem; color:#CBD5E1; margin-bottom:4px; text-align:left;">Voz de tu Asistente:</div>
             <select id="actVozTipo" class="perfil-input">
                 <option value="Aoede">🌸 Aoede (Femenina • Cálida y Natural)</option>
                 <option value="Algieba">🌿 Algieba (Masculina • Cercana y Clara)</option>
@@ -225,10 +228,12 @@
     <div id="modal-perfil">
         <div class="perfil-card">
             <h3>Configuración</h3>
+            <div style="font-size:0.85rem; color:#CBD5E1; margin-bottom:4px; text-align:left;">Tu Nombre:</div>
             <input type="text" id="inputNombreSenior" class="perfil-input" value="Sol" placeholder="Tu nombre">
+            <div style="font-size:0.85rem; color:#CBD5E1; margin-bottom:4px; text-align:left;">Nombre del Asistente:</div>
             <input type="text" id="inputNombreAsistenteEdit" class="perfil-input" value="Paz" placeholder="Nombre de tu asistente">
             
-            <div style="font-size:0.85rem; color:#CBD5E1; margin-bottom:6px; text-align:left;">Voz del Asistente:</div>
+            <div style="font-size:0.85rem; color:#CBD5E1; margin-bottom:4px; text-align:left;">Voz del Asistente:</div>
             <select id="selectVozTipo" class="perfil-input">
                 <option value="Aoede">🌸 Aoede (Femenina)</option>
                 <option value="Algieba">🌿 Algieba (Masculina)</option>
@@ -294,6 +299,15 @@
             "https://raw.githubusercontent.com/terapiasol-ai/A-osdorados-asistente/main/1791246654353.jpg"
         ];
 
+        // Verificar si ya guardó sus datos antes
+        window.addEventListener("DOMContentLoaded", () => {
+            const guardado = localStorage.getItem("senior_nombre");
+            if (guardado) {
+                document.getElementById("modal-activacion").style.display = "none";
+                actualizarTextosInterfaz();
+            }
+        });
+
         function activarLicenciaCliente() {
             const nom = document.getElementById("actNombre").value.trim() || "Sol";
             const asis = document.getElementById("actNombreAsistente").value.trim() || "Paz";
@@ -302,16 +316,23 @@
             nombreUsuario = nom;
             nombreAsistente = asis;
             tipoVozCuidador = voz;
+            
             localStorage.setItem("senior_nombre", nom);
             localStorage.setItem("senior_asistente_nom", asis);
             localStorage.setItem("senior_voz_tipo", voz);
             
-            document.getElementById("labelNombreTop").innerText = nom;
-            document.getElementById("saludoNombre").innerText = nom;
-            document.getElementById("headerNombreAsistente").innerText = asis;
-            document.getElementById("estadoTexto").innerText = `🟢 ${asis} en línea • Contigo`;
-            
+            actualizarTextosInterfaz();
             document.getElementById("modal-activacion").style.display = "none";
+        }
+
+        function actualizarTextosInterfaz() {
+            document.getElementById("labelNombreTop").innerText = nombreUsuario;
+            document.getElementById("saludoNombre").innerText = nombreUsuario;
+            document.getElementById("headerNombreAsistente").innerText = nombreAsistente;
+            document.getElementById("estadoTexto").innerText = `🟢 ${nombreAsistente} en línea • Contigo`;
+            document.getElementById("msgBienvenida").innerHTML = `Hola <span id="saludoNombre">${nombreUsuario}</span>. ¿Cómo estás hoy? Podemos conversar con calma.`;
+            const btnMic = document.getElementById("btnMicSenior");
+            if (btnMic) btnMic.innerHTML = `<span>🎙️ Tocar para Hablar con ${nombreAsistente}</span>`;
         }
 
         function abrirPerfil() {
@@ -325,14 +346,12 @@
             nombreUsuario = document.getElementById("inputNombreSenior").value.trim() || "Sol";
             nombreAsistente = document.getElementById("inputNombreAsistenteEdit").value.trim() || "Paz";
             tipoVozCuidador = document.getElementById("selectVozTipo").value;
+            
             localStorage.setItem("senior_nombre", nombreUsuario);
             localStorage.setItem("senior_asistente_nom", nombreAsistente);
             localStorage.setItem("senior_voz_tipo", tipoVozCuidador);
 
-            document.getElementById("labelNombreTop").innerText = nombreUsuario;
-            document.getElementById("saludoNombre").innerText = nombreUsuario;
-            document.getElementById("headerNombreAsistente").innerText = nombreAsistente;
-            document.getElementById("estadoTexto").innerText = `🟢 ${nombreAsistente} en línea • Contigo`;
+            actualizarTextosInterfaz();
             document.getElementById("modal-perfil").style.display = "none";
         }
 
