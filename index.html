@@ -886,4 +886,36 @@ REGLAS VIVAS DEL AULA DE CONCIENCIA:
     </script>
 </body>
 </html>    
-        
+
+    # === SEPARADOR VISUAL PARA EL DIARIO DE LOS 5 LIBROS EN CEREBRO ===
+from flask import has_request_context
+
+_LIBROS_AURION = {
+    "Registros Akáshicos y Libro del Alma",
+    "Votos de Pobreza y Carencia",
+    "Abundancia y Bloqueos de Dinero",
+    "Desprogramación Subconsciente y Sombra",
+    "El Manual del Observador",
+    "El Diario Sagrado",
+}
+
+def notificar_cerebro(mensaje):
+    try:
+        txt = str(mensaje or "")
+        if has_request_context() and request.path.rstrip("/") == "/api/chat":
+            d_req = request.get_json(force=True, silent=True) or {}
+            asis = str(d_req.get("asistente") or "").strip()
+            if d_req.get("origen") == "diario" or asis in _LIBROS_AURION:
+                if "INTERACCIÓN" in txt:
+                    txt = re.sub(r"🤲\s*<b>INTERACCIÓN\s*\([^)]+\):</b>", f"📖 <b>DIARIO DE VIDA ({asis}):</b>", txt)
+                elif not txt.startswith("📖"):
+                    txt = f"📖 <b>DIARIO DE VIDA ({asis}):</b>\n{txt}"
+        if bot:
+            try:
+                bot.send_message(CANAL_CEREBRO, txt, parse_mode="HTML")
+            except Exception:
+                bot.send_message(CANAL_CEREBRO, re.sub(r"<[^>]+>", "", txt))
+            return True
+    except Exception as e:
+        logger.error(f"Error notificar cerebro: {e}")
+    return False    
